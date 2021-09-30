@@ -1,0 +1,33 @@
+Composition *--
+Aggregation o--
+Extension <|--
+Instantiates -.>
+@startuml
+' ---Car related classes---
+class Car{}
+class Engine{}
+class Fuel{}
+
+
+
+
+' -------
+
+class Factory{}
+class Dealer{
+    Car[] cars
+}
+class Customer{
+    Car[] cars
+}
+
+
+Car "0..inf"--o "1" Customer
+Car "0..inf"--o "1" Dealer
+Car <.- Factory : "Produces"
+Dealer <.-  Customer : "Buys"
+Dealer -.> Factory : "Buys"
+
+
+
+@enduml
