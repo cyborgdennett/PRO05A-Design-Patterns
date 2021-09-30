@@ -5,13 +5,35 @@ Instantiates -.>
 @startuml
 ' ---Car related classes---
 class Car{}
-class Engine{}
-class Fuel{}
+    class Engine{}
+        class LiquidEngine{}
+        class ElectricEngine{}
+        class GaseousEngine{}
+    class Fuel{}
+        class LiquidFuel{}
+            class BenzineLiquidFuel{}
+            class DieselLiquidFuel{}
+        class ElectricFuel{}
+            class FastElectricFuel{}
+            class SlowElectricFuel{}
+        class GaseousFuel{}
+            class LNGGaseousFuel{}
+            class HydrogenGaseousFuel
+    class Model{}
+        class Cabrio{}
+        class Tank{}
+        class Crossover{}
+        class Sedan{}
+        class SUV{}
+    class Type{}
+        class RaceAuto{}
+        class LegerAuto{}
+        class GewoneAuto{}
 
 
 
 
-' -------
+' ---Factory classes
 
 class Factory{}
 class Dealer{
