@@ -81,6 +81,7 @@ interface Order{}
 
 ' ---Visual effects
 
+left to right direction
 skinparam linetype polyline
 skinparam linetype ortho
 
@@ -89,7 +90,7 @@ skinparam linetype ortho
 ' ---Car classes
 
 
-package "Car Models" {
+together $car {
 interface Car{
     Owner owner
 
@@ -113,7 +114,7 @@ interface Car{
     class SedanCar implements Car{}
     class SUVCar implements Car{}
 }
-package "Primary use"{
+together $usecase{
 interface Usecase{
     defaultmode()
 }
@@ -125,7 +126,7 @@ interface Usecase{
     }
     class NormalUsecase implements Usecase{}
 }
-package "Armor"{
+together $armor{
 interface Armoring{
     int health
 }
@@ -142,7 +143,7 @@ interface Armoring{
         int maxCalibre
     }
 }
-package "Car Parts"{
+together $part{
 interface Part{
     Date made
 }
@@ -197,7 +198,7 @@ interface Part{
             float maxAmpere
         }
 }
-package "Fuel" {
+together $fuel {
 interface Fuel{
     float kwh
     float amount
@@ -262,7 +263,7 @@ interface Owner{
 }
 
 
-package "Order Types" $order {
+together $order {
 interface Order{
     Owner buyer
     Owner seller
@@ -289,6 +290,7 @@ interface Order{
         int quantity
     }
 }
+
 
 ' ---Relations
 
