@@ -81,14 +81,22 @@ interface Order{}
 
 ' ---Visual effects
 
-left to right direction
+skinparam SequenceMessageTextAlignment center
+skinparam SequenceMessageAlignment center
+
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+
+' left to right direction
 skinparam linetype polyline
 skinparam linetype ortho
 
-    
+' ---Dark mode
+
+skinparam monochrome reverse
 
 ' ---Car classes
-
 
 together $car {
 interface Car{
@@ -223,6 +231,7 @@ interface Fuel{
 }
 ' ---Factory classes
 
+together $market{
 class Factory implements Owner{
     FactoryOrder[] incoming_orders
     Part[] parts
@@ -261,7 +270,7 @@ interface Owner{
     sell()
     buy()
 }
-
+}
 
 together $order {
 interface Order{
@@ -291,7 +300,6 @@ interface Order{
     }
 }
 
-
 ' ---Relations
 
 ' ---Market relations
@@ -320,7 +328,7 @@ Engine -> Fuel : "burns"
 
 ' ---Fuel relation with FuelStorage
 
-FuelStorage --o Fuel
+FuelStorage --o Fuel : "stores"
 
 ' ---Part relations to the factory
 
