@@ -20,18 +20,18 @@ interface Usecase{}
     class NormalUsecase implements Usecase{}
 
 interface Armoring{}
-    class BombproofArmoring{}
-    class ElectronicArmoring{}
-    class GasResistantArmoring{}
-    class BulletproofArmoring{}
+    class BombproofArmoring extends Armoring{}
+    class ElectronicArmoring extends Armoring{}
+    class GasResistantArmoring extends Armoring{}
+    class BulletproofArmoring extends Armoring{}
 
 (?)interface ArmoredParts implements Part, Armoring{}
 interface Part{}
     interface Engine implements Part{}
         abstract class LiquidEngine implements Engine{}
-            class EA111PetrolEngine{} (volkswagen)
-            class EA211PetrolEngine{} (volkswagen)
-            class EA288DieselEgine{} (volkswagen)
+            class EA111PetrolEngine extends LiquidEngine{} 
+            class EA211PetrolEngine extends LiquidEngine{} 
+            class EA288DieselEgine extends LiquidEngine{} 
         abstract class GaseousEngine implements Engine{}
             class LNGEngine extends GaseousEngine{}
             class HydrogenEngine extends GaseousEngine{}
@@ -71,16 +71,25 @@ class Customer implements Owner{}
 interface Owner{}
 
 interface Order{}
-    class CarOrder{}
-    class FactoryOrder{}
+    class CarOrder implements Order{}
+    class FactoryOrder implements Order{}
+    class PartOrder implements Order{}
+
 
 
 @startuml
+
+' ---Visual effects
+
+skinparam linetype polyline
+skinparam linetype ortho
 
     
 
 ' ---Car classes
 
+
+package "Car Models" {
 interface Car{
     Owner owner
 
@@ -103,7 +112,8 @@ interface Car{
     class CrossoverCar implements Car{}
     class SedanCar implements Car{}
     class SUVCar implements Car{}
-
+}
+package "Primary use"{
 interface Usecase{
     defaultmode()
 }
@@ -114,23 +124,25 @@ interface Usecase{
         fightmode()
     }
     class NormalUsecase implements Usecase{}
-
+}
+package "Armor"{
 interface Armoring{
     int health
 }
-    class BombproofArmoring{
+    class BombproofArmoring implements Armoring{
         int maxExplosiveForce
     }
-    class ElectronicArmoring{
+    class ElectronicArmoring implements Armoring{
         activate()
     }
-    class GasResistantArmoring{
+    class GasResistantArmoring implements Armoring{
         activate()
     }
-    class BulletproofArmoring{
+    class BulletproofArmoring implements Armoring{
         int maxCalibre
     }
-
+}
+package "Car Parts"{
 interface Part{
     Date made
 }
@@ -150,9 +162,10 @@ interface Part{
         abstract class LiquidEngine implements Engine{
             inject()
         }
-            class EA111PetrolEngine{} (volkswagen)
-            class EA211PetrolEngine{} (volkswagen)
-            class EA288DieselEgine{} (volkswagen)
+            ' Volkswagen motors
+            class EA111PetrolEngine extends LiquidEngine{} 
+            class EA211PetrolEngine extends LiquidEngine{} 
+            class EA288DieselEgine extends LiquidEngine{}
         abstract class GaseousEngine implements Engine{
             inject()
         }
@@ -160,8 +173,53 @@ interface Part{
             class HydrogenEngine extends GaseousEngine{}
         class ElectricEngine implements Engine{
             regen()
-        }   
+        } 
+    interface FuelStorage implements Part{
+        Fuel[] fuel
+        float capacity
 
+        bool checkFuel(Fuel f)
+        bool checkFull()
+        removeFuel(float a)
+        addFuel(Fuel f)
+    }
+        class LiquidFuelStorage implements FuelStorage{
+            LiquidFuel[] fuel
+        }
+        class GaseousFuelStorage implements FuelStorage{
+            GaseousFuel[] fuel
+        }
+        class ElectricFuelStorage implements FuelStorage{
+            ElectricFuel[] fuel
+            float minVolt
+            float maxVolt
+            float minAmpere
+            float maxAmpere
+        }
+}
+package "Fuel" {
+interface Fuel{
+    float kwh
+    float amount
+
+    delete()
+}
+    abstract class LiquidFuel implements Fuel{
+        float litre
+    }
+        class E10PetrolLiquidFuel extends LiquidFuel{}
+        class E5PetrolLiquidFuel extends LiquidFuel{}
+        class B7DieselLiquidFuel extends LiquidFuel{}
+    abstract class GaseousFuel implements Fuel{
+        float litre
+    }
+        class LNGGaseousFuel extends GaseousFuel{}
+        class HydrogenGaseousFuel extends GaseousFuel{}
+    class ElectricFuel implements Fuel{
+        float volt
+        float ampere
+    }  
+}
 ' ---Factory classes
 
 class Factory implements Owner{
@@ -203,6 +261,8 @@ interface Owner{
     buy()
 }
 
+
+package "Order Types" $order {
 interface Order{
     Owner buyer
     Owner seller
@@ -224,21 +284,48 @@ interface Order{
         Car car
         int quantity
     }
-    class PartOrder{
+    class PartOrder implements Order{
         Part part
         int quantity
     }
-
+}
 
 ' ---Relations
 
+' ---Market relations
 
+Owner -.> Order : "Makes an order"
+Car "0..inf"--o "1" Owner
 Car "0..inf"--o "1" Customer
 Car "0..inf"--o "1" Dealer
+Car "0..inf"--o "1" Factory
 Car <.- Factory : "Produces"
-Dealer <.-  Customer : "Buys"
-Dealer -.> Factory : "Buys"
+Dealer <.-  Customer : "Buys from"
+Dealer -.> Factory : "Buys from"
 
 
+
+' ---Car relations to its parts and features
+
+Car --o Usecase : "has"
+Car --o Armoring : "can have"
+Car --o Part : "has"
+Car --o "1" Owner : "has"
+
+' ---Fuel relation with Engine
+
+Engine -> Fuel : "burns"
+
+' ---Fuel relation with FuelStorage
+
+FuelStorage --o Fuel
+
+' ---Part relations to the factory
+
+Factory -.> Part : "produces"
+
+
+
+' hide $order
 
 @enduml
