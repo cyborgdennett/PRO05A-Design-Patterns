@@ -13,6 +13,7 @@ abstract class Car{}
     class CrossoverCar{}
     class SedanCar{}
     class SUVCar{}
+    
 
 interface Usecase{}
     class RaceUsecase implements Usecase{}
@@ -58,6 +59,11 @@ class Factory implements Owner{}
 
 ' ---AbstractFactory class
 
+interface AbstractFactory{}
+
+    class EngineFactory implements AbstractFactory{}
+    class FuelStorageFactory implements AbstractFactory{}
+    class CarFactory implements AbstractFactory{}
 
 
 ' ---Dealer classes
