@@ -13,7 +13,7 @@ abstract class Car{}
     class CrossoverCar{}
     class SedanCar{}
     class SUVCar{}
-    
+
 
 interface Usecase{}
     class RaceUsecase implements Usecase{}
@@ -26,32 +26,32 @@ interface Armoring{}
     class GasResistantArmoring extends Armoring{}
     class BulletproofArmoring extends Armoring{}
 
+interface Medium{}
+    interface Liquid implements Medium{}
+    interface Gaseous implements Medium{}
+    interface Electricity implements Medium{}
+
 (?)interface ArmoredParts implements Part, Armoring{}
 interface Part{}
     interface Engine implements Part{}
-        abstract class LiquidEngine implements Engine{}
-            class EA111PetrolEngine extends LiquidEngine{} 
-            class EA211PetrolEngine extends LiquidEngine{} 
-            class EA288DieselEgine extends LiquidEngine{} 
-        abstract class GaseousEngine implements Engine{}
-            class LNGEngine extends GaseousEngine{}
-            class HydrogenEngine extends GaseousEngine{}
-        class ElectricEngine implements Engine{}   
+        abstract class CombustionEngine extends Engine
+            class PetrolEngine extends CombustionEngine implements Liquid{} 
+            class DieselEgine extends CombustionEngine implements Liquid{} 
+            class LNGEngine extends CombustionEngine implements Gaseous{}
+            class HydrogenEngine extends CombustionEngine implements Gaseous{}
+        class ElectricEngine implements Engine, Electricity{}   
         
     interface FuelStorage implements Part{}
-        class LiquidFuelStorage implements FuelStorage{}
-        class GaseousFuelStorage implements FuelStorage{}
-        class ElectricFuelStorage implements FuelStorage{}
+        class LiquidFuelStorage implements FuelStorage, Liquid{}
+        class GaseousFuelStorage implements FuelStorage, Gaseous{}
+        class ElectricFuelStorage implements FuelStorage, Electricity{}
 
 interface Fuel{}
-    abstract class LiquidFuel implements Fuel{}
-        class E10PetrolLiquidFuel extends LiquidFuel{}
-        class E5PetrolLiquidFuel extends LiquidFuel{}
-        class B7DieselLiquidFuel extends LiquidFuel{}
-    abstract class GaseousFuel implements Fuel{}
-        class LNGGaseousFuel extends GaseousFuel{}
-        class HydrogenGaseousFuel extends GaseousFuel{}
-    class ElectricFuel implements Fuel{}
+    class PetrolLiquidFuel implements Fuel, Liquid{}
+    class DieselLiquidFuel implements Fuel, Liquid{}
+    class LNGGaseousFuel implements Fuel, Gaseous{}
+    class HydrogenGaseousFuel implements Fuel, Gaseous{}
+    class ElectricFuel implements Fuel, Electricity{}
 
 ' ---Factory classes
 
@@ -59,11 +59,12 @@ class Factory implements Owner{}
 
 ' ---AbstractFactory class
 
-interface AbstractFactory{}
+interface CarFactory implements AbstractFactory{}
+    class ElectricCarFactory implements CarFactory{}
+    class DieselCarFactory implements CarFactory{}
+    class LNGCarFactory implements CarFactory{}
+    class HydrogenCarFactory implements CarFactory{}
 
-    class EngineFactory implements AbstractFactory{}
-    class FuelStorageFactory implements AbstractFactory{}
-    class CarFactory implements AbstractFactory{}
 
 
 ' ---Dealer classes
