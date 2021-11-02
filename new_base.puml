@@ -119,56 +119,49 @@ skinparam linetype ortho
 
 together $vehicle {
 interface Vehicle{
-    Owner owner
+    - Owner owner
 
-    Part[] parts
-    FuelStorage[] fuel
-    Armoring[] armor
-    DriveTrain driveTrain
+    - nrOfSeats : int
+
+    - Part[] parts
+    - FuelStorage[] fuel
+    - Armoring armor
+    - DriveTrain driveTrain
+    - VehicleType use
 
     rangeLeft()
     fill(Fuel)
-    drive()
+    + drive()
+    + brake()
 
     removePart(Part)
     addPart(Part)
 }
-    class Cabrio implements VehicleModel{
+    class Cabrio implements Vehicle{
         openroof()
         closeroof()
     }
-    class Crossover implements VehicleModel{}
-    class Sedan implements VehicleModel{}
-    class SUV implements VehicleModel{}
-    class Nascar implements VehicleModel{}
-    class F1 implements VehicleModel{
-        - tireType : int
-    }
-    class Infantry implements VehicleModel{}
+    class Crossover implements Vehicle{}
+    class Sedan implements Vehicle{}
+    class SUV implements Vehicle{}
+
 }
 interface VehicleType{
-    + drive()
-    + brake()
-    + shiftUp()
-    + shiftDown()
+    +void print()
 }
 class CivilCar implements VehicleType{
-
+    +void print()
 }
 
 class Tank implements VehicleType{
-
+    +void print()
 }
 
 class RaceCar implements VehicleType{
-    
+    +void print()
 }
 
-interface VehicleModel {
-    - nrOfSeats : int
-}
-
-
+' ---Armoring uses decorator
 together $armor{
 interface Armoring{
     int health
@@ -199,7 +192,6 @@ interface Armoring{
 together $part{
 interface Part{
     Date made
-    Armoring armor
     +print()
 
 }
@@ -260,7 +252,8 @@ class DriveTrain{
     -Engine engine
     -FuelStorage storage
 
-    accelerate() 
+    +accelerate() 
+    +fill(Fuel)
 }
 
 }
@@ -270,7 +263,7 @@ interface Fuel{
     float kwh
     float amount
 
-    delete()
+    use(float amount)
 }
     abstract class LiquidFuel implements Fuel{
         float litre
@@ -305,6 +298,7 @@ class Factory implements Owner{
 interface DriveFactory{
     +makeEngine()
     +makeFuelStorage()
+    +makeDriveTrain()
 }
     class ElectricDriveFactory implements DriveFactory{}
     class DieselDriveFactory implements DriveFactory{}
@@ -312,16 +306,16 @@ interface DriveFactory{
     class LNGDriveFactory implements DriveFactory{}
     class HydrogenDriveFactory implements DriveFactory{}
 
-interface CarFactory{
+interface AbstractCarFactory{
     -DriveTrain makeDriveParts()
     -Seat makeSeats()
     -Rim makeRims()
     +Vehicle makeCar()
 }
-    class SUVCarFactory implements CarFactory{}
-    class CabrioCarFactory implements CarFactory{}
-    class CrossoverCarFactory implements CarFactory{}
-    class SedanCarFactory implements CarFactory{}
+    class SUVCarFactory implements AbstractCarFactory{}
+    class CabrioCarFactory implements AbstractCarFactory{}
+    class CrossoverCarFactory implements AbstractCarFactory{}
+    class SedanCarFactory implements AbstractCarFactory{}
 
 ' ---Dealer classes
 
@@ -408,15 +402,11 @@ Vehicle "0..inf" *--o "1" Owner : "has"
 
 Vehicle --o Part : "has"
 Vehicle --* "1" VehicleType
-Vehicle --o "1" VehicleModel
-
-' --- Part relations
-
-Part --o "0..1" Armoring : "can have"
+Vehicle --o "0..1" Armoring : "can have"
 
 ' ---Fuel relation with Engine
 
-Drivetrain -o "1" Engine
+DriveTrain -o "1" Engine
 DriveTrain -o "1" FuelStorage 
 Engine -o Fuel : "burns"
 

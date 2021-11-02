@@ -54,7 +54,6 @@ interface Fuel{}
 ' ---Factory classes
 
 class Factory implements Owner{}
-
 ' ---AbstractFactory class
 
 interface DriveFactory 
