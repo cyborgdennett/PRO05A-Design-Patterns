@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d44c9257-16e9-4b14-9f24-42b2ae19eccc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/out/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/.idea/out.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/Armor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/ArmorDecorator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/Armoring.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/BombproofArmoring.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/BulletproofArmoring.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/ElectronicArmoring.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/GasResistantArmoring.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/Part.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/Rim.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/Seat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/Vehicle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VehicleFactory2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VehicleFactory.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleFactory2/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +33,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -64,6 +43,19 @@
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="VehicleFactory" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -83,6 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1635848663680</updated>
       <workItem from="1635848664952" duration="384000" />
+      <workItem from="1635849131934" duration="366000" />
     </task>
     <servers />
   </component>
@@ -99,5 +92,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
