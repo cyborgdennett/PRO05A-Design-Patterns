@@ -1,35 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="281b060e-06f6-4907-ae12-583ad63190b1" name="Changes" comment="started on code">
-      <change beforePath="$PROJECT_DIR$/../VehicleFactory2/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleFactory2/src/App.java" afterDir="false" />
+    <list default="true" id="d44c9257-16e9-4b14-9f24-42b2ae19eccc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/out/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/.idea/out.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/Armor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/ArmorDecorator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/Armoring.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/BombproofArmoring.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/BulletproofArmoring.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/ElectronicArmoring.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/GasResistantArmoring.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/Part.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/Rim.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/Seat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VehicleFactory/Vehicle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VehicleFactory2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VehicleFactory.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="ProjectId" id="20M9qQGOz5ySVXIdj7ILagiPz1o" />
+  <component name="ProjectId" id="20MJjtMTjayn4x9P2nUwPVPTlOo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -38,11 +53,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -61,29 +77,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="281b060e-06f6-4907-ae12-583ad63190b1" name="Changes" comment="" />
-      <created>1635843783013</created>
+      <changelist id="d44c9257-16e9-4b14-9f24-42b2ae19eccc" name="Changes" comment="" />
+      <created>1635848663680</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1635843783013</updated>
-      <workItem from="1635843784339" duration="4226000" />
-      <workItem from="1635848594020" duration="94000" />
+      <updated>1635848663680</updated>
+      <workItem from="1635848664952" duration="384000" />
     </task>
-    <task id="LOCAL-00001" summary="started on code">
-      <created>1635847990219</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1635847990219</updated>
-    </task>
-    <task id="LOCAL-00002" summary="started on code">
-      <created>1635848272564</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1635848272564</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,10 +99,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="started on code" />
-    <option name="LAST_COMMIT_MESSAGE" value="started on code" />
   </component>
 </project>
