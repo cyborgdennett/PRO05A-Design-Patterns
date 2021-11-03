@@ -27,4 +27,7 @@ public class FuelTank implements Part{
     public void print(){
         System.out.println("FuelTank with:" + fuel.toString() + " full: " + amt + "/" + maxCapacity);
     }
+    public Fuel getFuel(){
+        return fuel;
+    }
 }
