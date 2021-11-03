@@ -7,14 +7,16 @@ import java.util.List;
 
 import com.example.Fuels.Fuel;
 import com.example.Parts.Armoring.*;
+import com.example.Parts.*;
 
-public class Vehicle {
+public abstract class Vehicle {
     private Owner owner = null;
     private Fuel fuel = null;
     private List<Part> parts = new ArrayList();
-    private Armoring[] armorings;
+    private VehicleType vehicleType = null;
 
-    public Vehicle() {
+    public Vehicle(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
     }
 
     public int rangeLeft() {
@@ -37,11 +39,19 @@ public class Vehicle {
         this.parts.add(part);
     }
 
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
+    }
+
     public void print() {
-        System.out.print("This vehicle has: ");
+        System.out.println("This " + vehicleType.getType() + " has: ");
+        vehicleType.print();
         for(Part part : parts){
             part.print();
         }
-
     }
 }
