@@ -1,7 +1,11 @@
 package com.example.VehicleTypes;
 
-public abstract class Tank extends VehicleType {
-    public Tank() {
+import com.example.Parts.DriveTrain.DriveTrain;
+import com.example.Vehicles.Vehicle;
+
+public abstract class Tank extends Vehicle {
+    public Tank(DriveTrain driveTrain) {
+        super(driveTrain);
     }
 
     @Override

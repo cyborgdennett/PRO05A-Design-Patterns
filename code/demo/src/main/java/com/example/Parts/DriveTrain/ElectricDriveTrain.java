@@ -25,4 +25,18 @@ public class ElectricDriveTrain implements DriveTrain{
         else
             System.out.println("Can't fill this much.");
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public void print() {
+        System.out.print("Electric");
+    }
+
+    @Override
+    public String getName() {
+        return "Electric";
+    }
+
+>>>>>>> 11aa7860cc4d53d9725a045da934e719bde01de3
 }

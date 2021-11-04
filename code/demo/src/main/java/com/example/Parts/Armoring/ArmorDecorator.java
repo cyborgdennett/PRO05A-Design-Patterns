@@ -8,6 +8,5 @@ public abstract class ArmorDecorator implements Armoring {
     }
 
     public void print() {
-         System.out.print("\t");
     }
 }

@@ -30,9 +30,23 @@ public class FuelDriveTrain implements DriveTrain{
         try{fuelTank.fill(fuel, amt);}
         catch(Exception e){e.printStackTrace();}
     }
+<<<<<<< HEAD
     @Override
     public void print(){
         System.out.println(fuelEngine.getFuel() + " Drivetrain");
     }
     
+=======
+
+    @Override
+    public void print() {
+        System.out.print("Fuel");
+    }
+
+    @Override
+    public String getName() {
+        return "Fuel";
+    }
+
+>>>>>>> 11aa7860cc4d53d9725a045da934e719bde01de3
 }
