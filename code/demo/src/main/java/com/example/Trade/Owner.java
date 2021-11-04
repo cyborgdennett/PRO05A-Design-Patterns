@@ -3,17 +3,14 @@ package com.example.Trade;
 import com.example.Vehicles.Vehicle;
 import java.util.List;
 
-public interface Owner {
-    String name = null;
-    List<Vehicle> vehicles = null;
-    float money = 0;
+public abstract class Owner {
+    String name;
+    List<Vehicle> vehicles;
+    float money;
+    Order order;
 
-    default void buy(){
-        
-    }
-    default void sell(){
-
-    }
+    abstract void buy();
+    abstract void sell();
     
     
 }

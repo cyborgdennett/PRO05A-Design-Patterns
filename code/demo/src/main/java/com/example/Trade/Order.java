@@ -1,10 +1,10 @@
 package com.example.Trade;
 
-public interface Order {
-    Owner to = null;
-    Owner from = null;
+public abstract class Order {
+    Owner to;
+    Owner from;
 
-    float price = 0;
+    public abstract void buyOwnership(float budget);
 
-    
+    float price;
 }
