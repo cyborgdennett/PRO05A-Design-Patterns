@@ -9,6 +9,7 @@ import com.example.Parts.Rims.ChromeRim;
 import com.example.Parts.Rims.Rim;
 import com.example.Parts.Seats.LeatherSeat;
 import com.example.Parts.Seats.Seat;
+import com.example.Parts.Storage.FuelTank;
 import com.example.Vehicles.SedanCar;
 import com.example.Vehicles.Vehicle;
 
@@ -18,8 +19,8 @@ public class SedanFactory implements AbstractCarFactory {
     public DriveTrain makeDriveParts() {
         DieselDriveFactory dieselDriveFactory = new DieselDriveFactory();
         Engine e = dieselDriveFactory.makeEngine(200);
-        
-        DriveTrain driveTrain = new FuelDriveTrain(fuelEngine, fuelTank)
+        FuelTank fuelTank = dieselDriveFactory.makeFuelStorage(80);
+        DriveTrain driveTrain = new FuelDriveTrain(e, fuelTank)
         return driveTrain;
     }
 
