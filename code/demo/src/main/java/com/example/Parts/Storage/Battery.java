@@ -2,11 +2,12 @@ package com.example.Parts.Storage;
 
 import com.example.Parts.Part;
 
-public class Battery implements Part{
+public class Battery extends FuelStorage{
     protected float maxCapacity = 0;
     protected float amt = 0;
     
     public Battery(float maxCapacity){
+        super(maxCapacity);
         this.maxCapacity = maxCapacity;
     }
     public boolean fill(float amt){
@@ -15,6 +16,12 @@ public class Battery implements Part{
         this.amt += amt;
         return true;
     }
+
+    @Override
+    public String getName() {
+        return "battery";
+    }
+
     public float get(float amt){
         if( amt <= 0 ) return 0;
         if( this.amt - amt >= 0 ) { this.amt -= amt; return amt;}

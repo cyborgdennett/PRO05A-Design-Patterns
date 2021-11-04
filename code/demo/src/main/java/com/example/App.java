@@ -20,24 +20,6 @@ public class App {
         Armoring bombproofArmoring = new BombproofArmoring(500);
         Armoring electronicArmor = new ElectronicArmoring(200);
 
-        Vehicle veh = new SUVCar(new ElectricDriveTrain());
-        Vehicle vehicle = new SUVCar(new FuelDriveTrain());
-        Tank tankmodel = new InfantryTank(new FuelDriveTrain());
-        tankmodel.setNrOfDoors(2);
-        tankmodel.setNrOfSeats(12);
-        InfantryTank tank = new InfantryTank(new FuelDriveTrain());
-        tank.print();
-        vehicle.addPart(bombproofArmoring);
-        vehicle.addPart(electronicArmor);
-        vehicle.print();
-
-        CabrioCar carbio = new CabrioCar(new ElectricDriveTrain());
-        carbio.print();
-        carbio.addPart(new ElectricEngine(200));
-
-        SedanCar sedan = new SedanCar(new FuelDriveTrain());
-        sedan.print();
-        sedan.setNrOfDoors(3);
 
 
 

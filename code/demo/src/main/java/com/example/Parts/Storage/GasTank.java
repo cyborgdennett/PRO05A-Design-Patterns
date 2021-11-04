@@ -2,11 +2,11 @@ package com.example.Parts.Storage;
 
 import com.example.Fuels.Fuel;
 
-public class FuelTank extends FuelStorage{
+public class GasTank extends FuelStorage{
     private Fuel fuel = null;
     private float amt;
 
-    public FuelTank(Fuel fuel, float maxCapacity){
+    public GasTank(Fuel fuel, float maxCapacity){
         super(maxCapacity);
         this.fuel = fuel;
     }
@@ -15,7 +15,7 @@ public class FuelTank extends FuelStorage{
 
     @Override
     public String getName() {
-        return "fueltank";
+        return "GasTank";
     }
 
     public boolean fill(Fuel fuel, float amt){
@@ -27,7 +27,7 @@ public class FuelTank extends FuelStorage{
     }
     @Override
     public void print(){
-        System.out.println("FuelTank with:" + fuel.toString() + " full: " + amt + "/" + maxCapacity);
+        System.out.println("GasTank with:" + fuel.toString() + " full: " + amt + "/" + maxCapacity);
     }
     public float get(float amt){
         if( amt <= 0 ) return 0;
