@@ -1,7 +1,10 @@
 package com.example.Factories.CarFactory;
 
+import com.example.DriveFactory.DieselDriveFactory;
 import com.example.Parts.DriveTrain.DriveTrain;
+import com.example.Parts.DriveTrain.FuelDriveTrain;
 import com.example.Parts.DriveTrain.HybridDriveTrain;
+import com.example.Parts.Engines.Engine;
 import com.example.Parts.Rims.ChromeRim;
 import com.example.Parts.Rims.Rim;
 import com.example.Parts.Seats.LeatherSeat;
@@ -13,7 +16,10 @@ public class SedanFactory implements AbstractCarFactory {
 
     @Override
     public DriveTrain makeDriveParts() {
-        DriveTrain driveTrain = new HybridDriveTrain();
+        DieselDriveFactory dieselDriveFactory = new DieselDriveFactory();
+        Engine e = dieselDriveFactory.makeEngine(200);
+        
+        DriveTrain driveTrain = new FuelDriveTrain(fuelEngine, fuelTank)
         return driveTrain;
     }
 
