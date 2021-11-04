@@ -1,20 +1,18 @@
 package com.example.Vehicles;
 
+import com.example.Parts.DriveTrain.DriveTrain;
 import com.example.VehicleTypes.CivilCar;
-import com.example.VehicleTypes.VehicleType;
 
 public class SUVCar extends CivilCar {
-
-    public SUVCar() {
+    public SUVCar(DriveTrain driveTrain) {
+        super(driveTrain);
+        super.setNrOfDoors(5);
+        super.setNrOfSeats(7);
     }
-
-    @Override
-    public String getType() {
-        return super.getType();
-    }
-
     @Override
     public String getModel() {
-        return null;
+        return "SUV";
     }
+
+
 }

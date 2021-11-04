@@ -15,7 +15,7 @@ public interface DriveTrain{
     default public void fill(Fuel fuel, float amt)throws ExemptionMechanismException{
 
     }
-    default public void print(){
+    public void print();
 
-    }
+    public String getName();
 }

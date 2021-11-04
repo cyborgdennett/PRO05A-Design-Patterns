@@ -10,7 +10,7 @@ public class HybridDriveTrain implements DriveTrain{
     private FuelDriveTrain fuelDriveTrain;
 
     @Override
-    public void fill(){
+    public void fill(float amt){
 
     }
     @Override
@@ -24,7 +24,11 @@ public class HybridDriveTrain implements DriveTrain{
     }
     @Override
     public void print(){
-        DriveTrain.super.print();
+        System.out.print("Hybrid");
+    }
 
+    @Override
+    public String getName() {
+        return "Hybrid";
     }
 }

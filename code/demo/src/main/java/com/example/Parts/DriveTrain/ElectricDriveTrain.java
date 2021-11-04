@@ -13,4 +13,14 @@ public class ElectricDriveTrain implements DriveTrain{
         
     }
 
+    @Override
+    public void print() {
+        System.out.print("Electric");
+    }
+
+    @Override
+    public String getName() {
+        return "Electric";
+    }
+
 }
