@@ -1,0 +1,32 @@
+@startuml
+
+' ---Visual effects
+
+skinparam SequenceMessageTextAlignment center
+skinparam SequenceMessageAlignment center
+
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+
+skinparam wrapMessageWidth 100
+
+' left to right direction
+skinparam linetype polyline
+skinparam linetype ortho
+
+' ---Dark mode
+
+' skinparam monochrome reverse
+
+' ---Patterns
+
+
+
+
+
+
+
+
+
+@enduml

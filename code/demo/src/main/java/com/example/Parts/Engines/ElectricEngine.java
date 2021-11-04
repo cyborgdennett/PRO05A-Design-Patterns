@@ -8,7 +8,7 @@ public class ElectricEngine extends Engine {
 
     @Override
     public void inject(float amt) {
-
+        System.out.println("Fuel injected");
     }
 
     @Override

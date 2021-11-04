@@ -1,34 +1,42 @@
 package com.example.Parts.DriveTrain;
 
-import javax.crypto.ExemptionMechanismException;
 
 import com.example.Fuels.Fuel;
-import com.example.Parts.Engines.ElectricEngine;
+import com.example.Parts.Engines.FuelEngine;
 import com.example.Parts.Storage.FuelTank;
 
 public class FuelDriveTrain implements DriveTrain{
-    private ElectricEngine fuelEngine;
-    private FuelTank fuelTank;
+    private FuelEngine fuelEngine = null;
+    private FuelTank fuelTank = null;
+
+    public FuelDriveTrain(FuelEngine fuelEngine, FuelTank fuelTank){
+        this.fuelEngine = fuelEngine;
+        this.fuelTank = fuelTank;
+    }
+
     @Override
-    public void drive() throws ExemptionMechanismException {
+    public void drive() {
         if(fuelTank.get(1) == 0) 
-            throw new ExemptionMechanismException();
-        fuelEngine.inject(fuelTank.getFuel(), 1);
+            DriveTrain.super.drive();
+        else
+            try{
+                fuelEngine.inject(fuelTank.getFuel(), 1);
+                System.out.println("Accellerating..");
+            }
+            catch(Exception e){e.printStackTrace();}
     }
     @Override
     public void fill(Fuel fuel, float amt){
         try{fuelTank.fill(fuel, amt);}
         catch(Exception e){e.printStackTrace();}
     }
-
     @Override
-    public void print() {
-        System.out.print("Fuel");
+    public void print(){
+        System.out.println(fuelEngine.getFuel() + " Drivetrain");
     }
 
-    @Override
-    public String getName() {
-        return "Fuel";
+    public String getName(){
+        return fuelEngine.getFuel() + " Drivetrain";
     }
-
+    
 }

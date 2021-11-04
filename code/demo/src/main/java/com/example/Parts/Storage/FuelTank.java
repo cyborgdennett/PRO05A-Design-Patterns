@@ -1,16 +1,16 @@
 package com.example.Parts.Storage;
 
 import com.example.Fuels.Fuel;
-import com.example.Parts.Part;
 
-public class FuelTank implements Part{
+public class FuelTank extends Battery{
     private Fuel fuel = null;
-    private float maxCapacity = 0;
-    private float amt = 0;
+
     public FuelTank(Fuel fuel, float maxCapacity){
+        super(maxCapacity);
         this.fuel = fuel;
-        this.maxCapacity = maxCapacity;
     }
+    @Override
+    public boolean fill(float amt){System.out.println("Trying to fill FuelTank without specific Fuel..."); return false;}
 
     public boolean fill(Fuel fuel, float amt){
         if( this.fuel != fuel && this.fuel != null ) return false;
@@ -19,11 +19,7 @@ public class FuelTank implements Part{
         this.amt += amt;
         return true;
     }
-    public float get(float amt){
-        if( amt <= 0 ) return 0;
-        if( this.amt - amt >= 0 ) { this.amt -= amt; return amt;}
-        else{ float ret = this.amt; this.amt = 0; this.fuel = null; return ret;}
-    }
+    @Override
     public void print(){
         System.out.println("FuelTank with:" + fuel.toString() + " full: " + amt + "/" + maxCapacity);
     }

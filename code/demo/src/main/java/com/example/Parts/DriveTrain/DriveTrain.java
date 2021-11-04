@@ -1,21 +1,20 @@
 package com.example.Parts.DriveTrain;
 
-import javax.crypto.ExemptionMechanismException;
 
 import com.example.Fuels.Fuel;
-import com.example.Parts.Engines.Engine;
 
 public interface DriveTrain{
-    default public void drive() throws ExemptionMechanismException {
-        
+    default public void drive() {
+        System.out.println("Not enough fuel");
     }
-    default public void fill(float amt)throws ExemptionMechanismException{
-
+    default public void fill(float amt){
+        System.out.println("Function not available");
     }
-    default public void fill(Fuel fuel, float amt)throws ExemptionMechanismException{
-
+    default public void fill(Fuel fuel, float amt){
+        System.out.println("Function not available");
     }
-    public void print();
-
+    default public void print(){    
+        System.out.println("Drivetrain");
+    }
     public String getName();
 }
