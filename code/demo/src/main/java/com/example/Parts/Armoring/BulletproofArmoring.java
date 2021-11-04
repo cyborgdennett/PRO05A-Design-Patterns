@@ -11,6 +11,11 @@ public class BulletproofArmoring extends ArmorDecorator {
         super.activate();
     }
 
+    @Override
+    public String getName() {
+        return "BulletproofArmoring";
+    }
+
     public void print() {
         super.print();
         System.out.println("Bulletproof Armoring (" + this.maxBulletProtection + ").");

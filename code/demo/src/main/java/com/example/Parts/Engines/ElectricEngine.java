@@ -16,4 +16,9 @@ public class ElectricEngine extends Engine {
         System.out.print("Electric");
         super.print();
     }
+
+    @Override
+    public String getName() {
+        return "Electric engine";
+    }
 }

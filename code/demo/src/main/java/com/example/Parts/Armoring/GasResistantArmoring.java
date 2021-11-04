@@ -11,6 +11,11 @@ public class GasResistantArmoring extends ArmorDecorator {
         super.activate();
     }
 
+    @Override
+    public String getName() {
+        return "GasResistantArmoring";
+    }
+
     public void print() {
         super.print();
         System.out.println("Gas Resistant Armoring (" + this.maxGasDensityProtection + ").");

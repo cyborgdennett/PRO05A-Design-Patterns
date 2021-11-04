@@ -6,6 +6,7 @@ import com.example.Parts.Engines.Engine;
 import com.example.Parts.Engines.FuelEngine;
 import com.example.Parts.Storage.FuelStorage;
 import com.example.Parts.Storage.FuelTank;
+import com.example.Parts.Storage.GasTank;
 
 public class LNGDriveFactory implements DriveFactory {
     @Override
