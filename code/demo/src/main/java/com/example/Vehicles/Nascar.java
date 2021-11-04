@@ -2,14 +2,24 @@ package com.example.Vehicles;
 
 import com.example.Parts.DriveTrain.DriveTrain;
 import com.example.VehicleTypes.RaceCar;
+import com.example.VehicleTypes.VehicleType;
 
-public class Nascar extends RaceCar {
-    public Nascar(DriveTrain driveTrain) {
+public class Nascar extends Vehicle {
+    public Nascar(DriveTrain driveTrain){
         super(driveTrain);
     }
 
-    @Override
     public String getModel() {
         return "Nascar";
+    }
+
+    @Override
+    public String getType() {
+        return "RaceCar";
+    }
+
+    @Override
+    public void drive() {
+
     }
 }

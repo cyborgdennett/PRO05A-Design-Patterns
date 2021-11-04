@@ -14,6 +14,6 @@ public class Customer extends Owner{
 
     @Override
     public void sell() {
-        order.sellOwnership(8000);
+//        order.sellOwnership(8000);
     }
 }

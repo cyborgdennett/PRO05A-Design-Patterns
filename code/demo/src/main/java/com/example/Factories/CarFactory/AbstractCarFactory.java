@@ -5,9 +5,13 @@ import com.example.Parts.Rims.Rim;
 import com.example.Parts.Seats.Seat;
 import com.example.Vehicles.Vehicle;
 
-public abstract interface AbstractCarFactory {
-    DriveTrain makeDriveParts();
-    Seat makeSeats();
-    Rim makeRims();
-    Vehicle makeCar();
+public class AbstractCarFactory {
+    public enum Model{
+        SUVCar, F1, CabrioCar, InfantryTank, Nascar, SedanCar
+    }
+
+    public enum Fuel{
+        Petrol, Diesel, Gas, Electric
+    }
+    public AbstractCarFactory(){};
 }

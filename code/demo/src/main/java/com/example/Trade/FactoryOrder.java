@@ -4,7 +4,7 @@ import com.example.Factories.CarFactory.*;
 public class FactoryOrder extends Order{
     public FactoryOrder(Dealer dealer, AbstractCarFactory factory, float minPrice){
         to = dealer;
-        from = factory;
+//        from = factory;
         price = minPrice;
     }
 

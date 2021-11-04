@@ -12,33 +12,7 @@ import com.example.Parts.Storage.Battery;
 import com.example.Vehicles.SUVCar;
 import com.example.Vehicles.Vehicle;
 
-public class SUVFactory implements AbstractCarFactory {
+public class SUVFactory extends AbstractCarFactory {
 
-    @Override
-    public DriveTrain makeDriveParts() {
-        ElectricDriveFactory electricDriveFactory = new ElectricDriveFactory();
-        ElectricEngine e = (ElectricEngine) electricDriveFactory.makeEngine(120);
-        Battery b = (Battery) electricDriveFactory.makeFuelStorage(40);
-        DriveTrain driveTrain = new ElectricDriveTrain(e, b);
-        return driveTrain;
-    }
-
-    @Override
-    public Seat makeSeats() {
-        Seat seat = new FabricSeat();
-        return seat;
-    }
-
-    @Override
-    public Rim makeRims() {
-        Rim rim = new DefaultRim();
-        return rim;
-    }
-
-    @Override
-    public Vehicle makeCar() {
-        Vehicle vehicle = new SUVCar(makeDriveParts());
-        return vehicle;
-    }
     
 }

@@ -9,15 +9,17 @@ import com.example.Parts.Engines.FuelEngine;
 import com.example.Parts.Storage.FuelStorage;
 import com.example.Parts.Storage.FuelTank;
 
-public class DieselDriveFactory implements DriveFactory{
+public class DieselDriveFactory {
 
-    @Override
-    public Engine makeEngine(int hp) {
+    public FuelEngine makeEngine(int hp) {
         return new FuelEngine(new Diesel(), hp);
     }
 
-    @Override
-    public FuelStorage makeFuelStorage(float maxCapacity) {
+    public FuelTank makeFuelStorage(float maxCapacity) {
         return new FuelTank(new Diesel(),maxCapacity);
+    }
+
+    public DriveTrain makeDriveTrain(FuelEngine engine, FuelTank fuelStorage) {
+        return new FuelDriveTrain(engine, fuelStorage);
     }
 }

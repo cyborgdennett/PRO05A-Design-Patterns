@@ -36,7 +36,7 @@ public class FuelDriveTrain implements DriveTrain{
     }
 
     public String getName(){
-        return fuelEngine.getFuel() + " Drivetrain";
+        return fuelEngine.getName() + " Drivetrain";
     }
     
 }

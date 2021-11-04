@@ -26,7 +26,7 @@ public class FuelEngine extends Engine {
 
     @Override
     public String getName() {
-        return fuel.toString() + " engine";
+        return fuel.getName()+ " engine";
     }
 
     public String getFuel(){

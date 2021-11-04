@@ -6,5 +6,10 @@ public class Petrol implements Fuel{
         Fuel.super.print();
         System.out.println("Petrol");
     }
+
+    @Override
+    public String getName() {
+        return "petrol";
+    }
 }
     

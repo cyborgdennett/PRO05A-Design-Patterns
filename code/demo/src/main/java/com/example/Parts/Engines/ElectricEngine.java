@@ -19,6 +19,6 @@ public class ElectricEngine extends Engine {
 
     @Override
     public String getName() {
-        return "Electric engine";
+        return "electric engine";
     }
 }

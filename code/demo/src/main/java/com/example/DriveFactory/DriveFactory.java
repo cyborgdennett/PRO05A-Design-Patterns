@@ -9,4 +9,5 @@ import com.example.Parts.Storage.FuelTank;
 public interface DriveFactory {
      public Engine makeEngine(int hp);
      public FuelStorage makeFuelStorage(float maxCapacity);
+//     public DriveTrain makeDriveTrain(Engine engine, FuelStorage fuelStorage);
 }

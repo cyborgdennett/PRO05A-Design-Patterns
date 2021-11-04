@@ -13,33 +13,7 @@ import com.example.Parts.Storage.FuelTank;
 import com.example.Vehicles.InfantryTank;
 import com.example.Vehicles.Vehicle;
 
-public class InfantryTankFactory implements AbstractCarFactory {
+public class InfantryTankFactory extends AbstractCarFactory {
 
-    @Override
-    public DriveTrain makeDriveParts() {
-        DieselDriveFactory dieselDriveFactory = new DieselDriveFactory();
-        Engine e = dieselDriveFactory.makeEngine(200);
-        FuelTank fuelTank = dieselDriveFactory.makeFuelStorage(80);
-        DriveTrain driveTrain = new FuelDriveTrain(e, fuelTank)
-        return driveTrain;
-    }
-
-    @Override
-    public Seat makeSeats() {
-        Seat seat = new FabricSeat();
-        return seat;
-    }
-
-    @Override
-    public Rim makeRims() {
-        Rim rim = new ChromeRim();
-        return rim;
-    }
-
-    @Override
-    public Vehicle makeCar() {
-        Vehicle vehicle = new InfantryTank(makeDriveParts());
-        return null;
-    }
     
 }

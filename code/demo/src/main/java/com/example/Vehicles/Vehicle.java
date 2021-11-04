@@ -8,8 +8,14 @@ import java.util.List;
 
 import com.example.Fuels.Fuel;
 import com.example.Parts.*;
+import com.example.VehicleTypes.CivilCar;
+import com.example.VehicleTypes.VehicleType;
 
-public abstract class Vehicle {
+public abstract class Vehicle/*<T extends VehicleType>*/{
+//    public enum model{
+//        Sedan, SUV
+//    }
+
     private Owner owner = null;
     private Fuel fuel = null;
     private List<Part> parts = new ArrayList();
@@ -20,6 +26,9 @@ public abstract class Vehicle {
         this.driveTrain = driveTrain;
     }
 
+    public abstract String getModel();
+    public abstract String getType();
+
     public DriveTrain getDriveTrain() {
         return driveTrain;
     }
@@ -28,8 +37,6 @@ public abstract class Vehicle {
         this.driveTrain = driveTrain;
     }
 
-    public abstract String getType();
-    public abstract String getModel();
     public int getNrOfSeats() {
         return nrOfSeats;
     }
@@ -66,7 +73,7 @@ public abstract class Vehicle {
     }
 
     public void print() {
-        System.out.println("This " + getModel() + " is a "+ getType() + " and it has: ");
+        System.out.println("This "+ getModel()  + " is a "+ getType() +  " and it has: ");
         System.out.println("\tDrivetrain: " + driveTrain.getName());
         System.out.println("\tParts:");
         for(Part part : parts){

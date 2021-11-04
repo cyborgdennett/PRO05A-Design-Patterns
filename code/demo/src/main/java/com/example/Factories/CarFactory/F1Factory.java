@@ -12,33 +12,7 @@ import com.example.Parts.Storage.FuelTank;
 import com.example.Vehicles.F1;
 import com.example.Vehicles.Vehicle;
 
-public class F1Factory implements AbstractCarFactory {
+public class F1Factory extends AbstractCarFactory {
 
-    @Override
-    public DriveTrain makeDriveParts() {
-        PetrolDriveFactory petrolDriveFactory = new PetrolDriveFactory();
-        Engine engine = petrolDriveFactory.makeEngine(150);
-        FuelTank fuelTank = petrolDriveFactory.makeFuelStorage(80);
-        DriveTrain driveTrain = new FuelDriveTrain(engine, fuelTank)
-        return driveTrain;
-    }
-
-    @Override
-    public Seat makeSeats() {
-        Seat seat = new LeatherSeat();
-        return seat;
-    }
-
-    @Override
-    public Rim makeRims() {
-        Rim rim = new DefaultRim();
-        return rim;
-    }
-
-    @Override
-    public Vehicle makeCar() {
-        Vehicle vehicle = new F1(makeDriveParts());
-        return vehicle;
-    }
     
 }
