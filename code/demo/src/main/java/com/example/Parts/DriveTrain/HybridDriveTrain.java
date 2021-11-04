@@ -3,8 +3,13 @@ package com.example.Parts.DriveTrain;
 import com.example.Fuels.Fuel;
 
 public class HybridDriveTrain implements DriveTrain{
-    private ElectricDriveTrain electricDriveTrain;
-    private FuelDriveTrain fuelDriveTrain;
+    private ElectricDriveTrain electricDriveTrain = null;
+    private FuelDriveTrain fuelDriveTrain = null;
+
+    public HybridDriveTrain(ElectricDriveTrain e, FuelDriveTrain f){
+        electricDriveTrain = e;
+        fuelDriveTrain = f;
+    }
 
     @Override
     public void fill(Fuel fuel, float amt){

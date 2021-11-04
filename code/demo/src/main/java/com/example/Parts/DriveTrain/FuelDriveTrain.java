@@ -6,8 +6,8 @@ import com.example.Parts.Engines.FuelEngine;
 import com.example.Parts.Storage.FuelTank;
 
 public class FuelDriveTrain implements DriveTrain{
-    private FuelEngine fuelEngine;
-    private FuelTank fuelTank;
+    private FuelEngine fuelEngine = null;
+    private FuelTank fuelTank = null;
 
     public FuelDriveTrain(FuelEngine fuelEngine, FuelTank fuelTank){
         this.fuelEngine = fuelEngine;
@@ -36,7 +36,7 @@ public class FuelDriveTrain implements DriveTrain{
     }
 
     public String getName(){
-        return fuelEngine.getFuel() + "Engine";
+        return fuelEngine.getFuel() + " Drivetrain";
     }
     
 }

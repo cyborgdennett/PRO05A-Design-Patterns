@@ -5,8 +5,14 @@ import com.example.Parts.Engines.ElectricEngine;
 import com.example.Parts.Storage.Battery;
 
 public class ElectricDriveTrain implements DriveTrain{
-    private ElectricEngine electricEngine;
-    private Battery battery;
+    protected ElectricEngine electricEngine;
+    protected Battery battery;
+
+    public ElectricDriveTrain(ElectricEngine e, Battery b){
+        electricEngine = e;
+        battery = b;
+    }
+
     public void drive() {
         //throw exception if there is not enough fuel
         if(battery.get(1) < .5) 
