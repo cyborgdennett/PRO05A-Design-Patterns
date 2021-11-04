@@ -1,7 +1,14 @@
 package com.example.Vehicles;
 
-public class InfantryTank extends Vehicle{
-    public InfantryTank(VehicleType vehicleType) {
-        super(vehicleType);
+import com.example.VehicleTypes.Tank;
+import com.example.VehicleTypes.VehicleType;
+
+public class InfantryTank extends Tank {
+    public InfantryTank() {
+    }
+
+    @Override
+    public String getModel() {
+        return "tank";
     }
 }

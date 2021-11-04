@@ -1,8 +1,20 @@
 package com.example.Vehicles;
 
-public class SUVCar extends Vehicle {
+import com.example.VehicleTypes.CivilCar;
+import com.example.VehicleTypes.VehicleType;
 
-    public SUVCar(VehicleType vehicleType) {
-        super(vehicleType);
+public class SUVCar extends CivilCar {
+
+    public SUVCar() {
+    }
+
+    @Override
+    public String getType() {
+        return super.getType();
+    }
+
+    @Override
+    public String getModel() {
+        return null;
     }
 }

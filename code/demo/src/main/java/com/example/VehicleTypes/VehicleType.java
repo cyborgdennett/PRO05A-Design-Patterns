@@ -1,23 +1,20 @@
-package com.example.Vehicles;
+package com.example.VehicleTypes;
 
-public abstract class VehicleType {
-    protected int horsePower;
+import com.example.Vehicles.Vehicle;
+
+public abstract class VehicleType extends Vehicle {
     protected int nrOfDoors;
     protected int nrOfSeats;
 
-    public abstract String getType();
-    public void print(){
-        System.out.print("\t" + getHorsePower() + " hp.");
-        System.out.print("\t" + getNrOfSeats() + " seats.");
-        System.out.println("\t" + getNrOfDoors() + " doors.");
-    };
-
-    public int getHorsePower() {
-        return horsePower;
+    public VehicleType() {
     }
 
-    public abstract void setHorsePower(int horsePower);
-
+    public abstract String getType();
+    public abstract String getModel();
+    public void print(){
+        System.out.print("\t" + getNrOfSeats() + " seats.");
+        System.out.println("\t" + getNrOfDoors() + " doors.");
+    }
     public int getNrOfDoors() {
         return nrOfDoors;
     }
