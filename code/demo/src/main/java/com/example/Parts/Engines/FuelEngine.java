@@ -23,6 +23,12 @@ public class FuelEngine extends Engine {
         System.out.print(fuel.toString());
         super.print();
     }
+
+    @Override
+    public String getName() {
+        return fuel.toString() + " engine";
+    }
+
     public String getFuel(){
         return fuel.getClass().getName();
     }

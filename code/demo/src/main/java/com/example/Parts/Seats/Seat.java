@@ -1,5 +1,7 @@
 package com.example.Parts.Seats;
 
-public interface Seat {
-    
+import com.example.Parts.Part;
+
+public interface Seat extends Part {
+
 }

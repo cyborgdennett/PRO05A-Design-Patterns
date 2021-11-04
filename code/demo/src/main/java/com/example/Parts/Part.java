@@ -8,4 +8,5 @@ public interface Part {
     Date made = null;
 
     void print();
+    String getName();
 }

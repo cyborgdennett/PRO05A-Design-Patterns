@@ -11,6 +11,11 @@ public class ElectronicArmoring extends ArmorDecorator {
         super.activate();
     }
 
+    @Override
+    public String getName() {
+        return "ElectronicArmoring";
+    }
+
     public void print() {
         super.print();
         System.out.println("Electronic Armor(" + this.maxPowerProtection + ").");

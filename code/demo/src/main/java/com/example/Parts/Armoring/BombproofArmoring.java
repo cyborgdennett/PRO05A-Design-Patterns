@@ -10,6 +10,11 @@ public class BombproofArmoring extends ArmorDecorator {
     public void activate() {
     }
 
+    @Override
+    public String getName() {
+        return "BombproofArmoring";
+    }
+
     public void print() {
         super.print();
         System.out.println("BombproofArmoring (" + this.maxExplosiveForce + ").");
