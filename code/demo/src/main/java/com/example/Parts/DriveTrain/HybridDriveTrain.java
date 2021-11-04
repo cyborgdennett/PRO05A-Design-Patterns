@@ -1,26 +1,24 @@
 package com.example.Parts.DriveTrain;
 
-import com.example.Parts.Engines.ElectricEngine;
-import com.example.Parts.Engines.Engine;
-import com.example.Parts.Storage.Battery;
-import com.example.Parts.Storage.FuelTank;
+import com.example.Fuels.Fuel;
 
 public class HybridDriveTrain implements DriveTrain{
     private ElectricDriveTrain electricDriveTrain;
     private FuelDriveTrain fuelDriveTrain;
 
     @Override
-    public void fill(){
-
+    public void fill(Fuel fuel, float amt){
+        fuelDriveTrain.fill(fuel, amt);
+    }
+    @Override
+    public void fill(float amt){
+        electricDriveTrain.fill(amt);
     }
     @Override
     public void drive() {
-        try{
-            electricDriveTrain.drive();
-        } catch(Exception e){e.printStackTrace();}
-        try{
-            fuelDriveTrain.drive();
-        } catch(Exception e){e.printStackTrace();}
+        electricDriveTrain.drive();
+        
+        fuelDriveTrain.drive();
     }
     @Override
     public void print(){

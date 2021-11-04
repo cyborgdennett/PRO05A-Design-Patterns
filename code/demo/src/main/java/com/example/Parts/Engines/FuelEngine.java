@@ -11,7 +11,7 @@ public class FuelEngine extends Engine {
     }
 
     @Override
-    public void inject(Fuel fuel, float amt) {
+    public void inject(Fuel fuel, float amt) throws UnsupportedOperationException{
         if( this.fuel != fuel ) {
             throw new ClassCastException("Wrong fuel for engine. Received: " + fuel.toString() + ", Required: " + this.fuel.toString());
         }
@@ -22,5 +22,8 @@ public class FuelEngine extends Engine {
     public void print() {
         System.out.print(fuel.toString());
         super.print();
+    }
+    public String getFuel(){
+        return fuel.toString();
     }
 }
