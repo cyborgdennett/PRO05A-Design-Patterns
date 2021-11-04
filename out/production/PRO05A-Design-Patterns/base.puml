@@ -1,0 +1,20 @@
+Composition *--
+Aggregation o--
+Extension <|--
+Instantiates -.>
+@startuml
+
+class Car{}
+class Factory{}
+class Dealer{}
+class Customer{}
+
+Car --o Customer
+Car --o Dealer
+Car <.- Factory
+Dealer <.->  Customer
+Dealer <-.> Factory
+
+
+
+@enduml

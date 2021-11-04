@@ -1,0 +1,345 @@
+Composition *--
+Aggregation o--
+Extension <|--
+Instantiates -. >
+
+' ---Class name overview
+
+' ---Car related classes---
+
+abstract class Car{}
+    class CabrioCar{}
+    class TankCar{} 
+    class CrossoverCar{}
+    class SedanCar{}
+    class SUVCar{}
+
+interface Usecase{}
+    class RaceUsecase implements Usecase{}
+    class ArmyUsecase implements Usecase{}
+    class NormalUsecase implements Usecase{}
+
+interface Armoring{}
+    class BombproofArmoring extends Armoring{}
+    class ElectronicArmoring extends Armoring{}
+    class GasResistantArmoring extends Armoring{}
+    class BulletproofArmoring extends Armoring{}
+
+(?)interface ArmoredParts implements Part, Armoring{}
+interface Part{}
+    interface Engine implements Part{}
+        abstract class LiquidEngine implements Engine{}
+            class EA111PetrolEngine extends LiquidEngine{} 
+            class EA211PetrolEngine extends LiquidEngine{} 
+            class EA288DieselEgine extends LiquidEngine{} 
+        abstract class GaseousEngine implements Engine{}
+            class LNGEngine extends GaseousEngine{}
+            class HydrogenEngine extends GaseousEngine{}
+        class ElectricEngine implements Engine{}   
+        
+    interface FuelStorage implements Part{}
+        class LiquidFuelStorage implements FuelStorage{}
+        class GaseousFuelStorage implements FuelStorage{}
+        class ElectricFuelStorage implements FuelStorage{}
+
+interface Fuel{}
+    abstract class LiquidFuel implements Fuel{}
+        class E10PetrolLiquidFuel extends LiquidFuel{}
+        class E5PetrolLiquidFuel extends LiquidFuel{}
+        class B7DieselLiquidFuel extends LiquidFuel{}
+    abstract class GaseousFuel implements Fuel{}
+        class LNGGaseousFuel extends GaseousFuel{}
+        class HydrogenGaseousFuel extends GaseousFuel{}
+    class ElectricFuel implements Fuel{}
+
+' ---Factory classes
+
+class Factory implements Owner{}
+
+' ---AbstractFactory class
+
+
+
+' ---Dealer classes
+
+class Dealer implements Owner{}
+
+
+' ---Customer classes
+
+class Customer implements Owner{}
+
+
+' ---Helper classes
+
+interface Owner{}
+
+interface Order{}
+    class CarOrder implements Order{}
+    class FactoryOrder implements Order{}
+    class PartOrder implements Order{}
+
+
+
+@startuml
+
+' ---Visual effects
+
+skinparam SequenceMessageTextAlignment center
+skinparam SequenceMessageAlignment center
+
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+
+' left to right direction
+skinparam linetype polyline
+skinparam linetype ortho
+
+' ---Dark mode
+
+' skinparam monochrome reverse
+
+' ---Car classes
+
+together $car {
+interface Car{
+    Owner owner
+
+    Part[] parts
+    FuelStorage[] fuel
+    Usecase[] use
+    Armoring[] armor
+
+    rangeLeft()
+    fill(Fuel)
+    drive()
+}
+    class CabrioCar implements Car{
+        openroof()
+        closeroof()
+    }
+    class TankCar implements Car{
+        shoot()
+    } 
+    class CrossoverCar implements Car{}
+    class SedanCar implements Car{}
+    class SUVCar implements Car{}
+}
+together $usecase{
+interface Usecase{
+    defaultmode()
+}
+    class RaceUsecase implements Usecase{
+        racemode()
+    }
+    class ArmyUsecase implements Usecase{
+        fightmode()
+    }
+    class NormalUsecase implements Usecase{}
+}
+together $armor{
+interface Armoring{
+    int health
+}
+    class BombproofArmoring implements Armoring{
+        int maxExplosiveForce
+    }
+    class ElectronicArmoring implements Armoring{
+        activate()
+    }
+    class GasResistantArmoring implements Armoring{
+        activate()
+    }
+    class BulletproofArmoring implements Armoring{
+        int maxCalibre
+    }
+}
+together $part{
+interface Part{
+    Date made
+}
+    interface Engine implements Part{
+        int torque
+        int pk
+
+        float efficiency
+
+        bool state
+
+        start()
+        stop()
+
+        accelerate()
+    }
+        abstract class LiquidEngine implements Engine{
+            inject()
+        }
+            ' Volkswagen motors
+            class EA111PetrolEngine extends LiquidEngine{} 
+            class EA211PetrolEngine extends LiquidEngine{} 
+            class EA288DieselEgine extends LiquidEngine{}
+        abstract class GaseousEngine implements Engine{
+            inject()
+        }
+            class LNGEngine extends GaseousEngine{}
+            class HydrogenEngine extends GaseousEngine{}
+        class ElectricEngine implements Engine{
+            regen()
+        } 
+    interface FuelStorage implements Part{
+        Fuel[] fuel
+        float capacity
+
+        bool checkFuel(Fuel f)
+        bool checkFull()
+        removeFuel(float a)
+        addFuel(Fuel f)
+    }
+        class LiquidFuelStorage implements FuelStorage{
+            LiquidFuel[] fuel
+        }
+        class GaseousFuelStorage implements FuelStorage{
+            GaseousFuel[] fuel
+        }
+        class ElectricFuelStorage implements FuelStorage{
+            ElectricFuel[] fuel
+            float minVolt
+            float maxVolt
+            float minAmpere
+            float maxAmpere
+        }
+}
+together $fuel {
+interface Fuel{
+    float kwh
+    float amount
+
+    delete()
+}
+    abstract class LiquidFuel implements Fuel{
+        float litre
+    }
+        class E10PetrolLiquidFuel extends LiquidFuel{}
+        class E5PetrolLiquidFuel extends LiquidFuel{}
+        class B7DieselLiquidFuel extends LiquidFuel{}
+    abstract class GaseousFuel implements Fuel{
+        float litre
+    }
+        class LNGGaseousFuel extends GaseousFuel{}
+        class HydrogenGaseousFuel extends GaseousFuel{}
+    class ElectricFuel implements Fuel{
+        float volt
+        float ampere
+    }  
+}
+' ---Factory classes
+
+together $market{
+class Factory implements Owner{
+    FactoryOrder[] incoming_orders
+    Part[] parts
+    Car[] unfinished_cars
+
+    makePart()
+    makeCar()
+
+    buyPart()
+    sellPart()
+}
+
+' ---Dealer classes
+
+class Dealer implements Owner{
+    FactoryOrder[] outgoing_orders
+    CarOrder[] incoming_orders
+
+    showCatalogue()
+}
+
+
+' ---Customer classes
+
+class Customer implements Owner{
+    CarOrder[] outgoing_orders
+}
+
+
+' ---Helpingclasses
+
+interface Owner{
+    Car[] cars
+    (?)int money
+
+    sell()
+    buy()
+}
+}
+
+together $order {
+interface Order{
+    Owner buyer
+    Owner seller
+
+    int price
+
+    Date start
+    Date end
+
+    bool completed
+
+    send()
+    accept()
+}
+    class CarOrder implements Order{
+        Car car
+    }
+    class FactoryOrder implements Order{
+        Car car
+        int quantity
+    }
+    class PartOrder implements Order{
+        Part part
+        int quantity
+    }
+}
+
+' ---Relations
+
+' ---Market relations
+
+Owner -.> Order : "Makes an order"
+Car "0..inf"--o "1" Owner
+Car "0..inf"--o "1" Customer
+Car "0..inf"--o "1" Dealer
+Car "0..inf"--o "1" Factory
+Car <.- Factory : "Produces"
+Dealer <.-  Customer : "Buys from"
+Dealer -.> Factory : "Buys from"
+
+
+
+' ---Car relations to its parts and features
+
+Car --o Usecase : "has"
+Car --o Armoring : "can have"
+Car --o Part : "has"
+Car --o "1" Owner : "has"
+
+' ---Fuel relation with Engine
+
+Engine -> Fuel : "burns"
+
+' ---Fuel relation with FuelStorage
+
+FuelStorage --o Fuel : "stores"
+
+' ---Part relations to the factory
+
+Factory -.> Part : "produces"
+
+
+
+' hide $order
+
+@enduml
