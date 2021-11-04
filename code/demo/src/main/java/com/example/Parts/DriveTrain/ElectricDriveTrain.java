@@ -25,8 +25,6 @@ public class ElectricDriveTrain implements DriveTrain{
         else
             System.out.println("Can't fill this much.");
     }
-<<<<<<< HEAD
-=======
 
     @Override
     public void print() {
@@ -38,5 +36,4 @@ public class ElectricDriveTrain implements DriveTrain{
         return "Electric";
     }
 
->>>>>>> 11aa7860cc4d53d9725a045da934e719bde01de3
 }

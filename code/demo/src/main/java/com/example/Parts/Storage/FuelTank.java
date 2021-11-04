@@ -1,7 +1,6 @@
 package com.example.Parts.Storage;
 
 import com.example.Fuels.Fuel;
-import com.example.Parts.Part;
 
 public class FuelTank extends Battery{
     private Fuel fuel = null;

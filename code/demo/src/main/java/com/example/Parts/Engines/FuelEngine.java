@@ -24,6 +24,6 @@ public class FuelEngine extends Engine {
         super.print();
     }
     public String getFuel(){
-        return fuel.toString();
+        return fuel.getClass().getName();
     }
 }
