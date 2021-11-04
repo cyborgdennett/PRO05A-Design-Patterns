@@ -1,19 +1,20 @@
 package com.example.VehicleTypes;
 
-public abstract class RaceCar extends VehicleType {
+import com.example.Parts.DriveTrain.DriveTrain;
+import com.example.Vehicles.Vehicle;
+
+public abstract class RaceCar extends Vehicle {
 
 
-    public RaceCar(){
+    public RaceCar(DriveTrain driveTrain){
+        super(driveTrain);
 
     }
 
     @Override
     public String getType() {
-        return "racecar";
+        return "RaceCar";
     }
-
-    @Override
-    public abstract String getModel();
 
     public void overtake(){
         System.out.println("Overtaking!...");
