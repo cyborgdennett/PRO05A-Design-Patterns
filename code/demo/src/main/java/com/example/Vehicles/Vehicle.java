@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.Fuels.Fuel;
-import com.example.Parts.Armoring.*;
 import com.example.Parts.*;
+import com.example.VehicleTypes.VehicleType;
 
 public abstract class Vehicle {
     private Owner owner = null;
@@ -15,8 +15,8 @@ public abstract class Vehicle {
     private List<Part> parts = new ArrayList();
     private VehicleType vehicleType = null;
 
-    public Vehicle(VehicleType vehicleType) {
-        this.vehicleType = vehicleType;
+    public Vehicle() {
+
     }
 
     public int rangeLeft() {

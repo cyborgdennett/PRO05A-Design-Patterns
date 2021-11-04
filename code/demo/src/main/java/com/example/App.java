@@ -1,8 +1,8 @@
 package com.example;
 
-import com.example.*;
-import com.example.Parts.*;
 import com.example.Parts.Armoring.*;
+import com.example.VehicleTypes.CivilCar;
+import com.example.VehicleTypes.Tank;
 import com.example.Vehicles.*;
 
 public class App {
@@ -12,14 +12,12 @@ public class App {
         Armoring bombproofArmoring = new BombproofArmoring(500);
         Armoring electronicArmor = new ElectronicArmoring(200);
 
-        Vehicle veh = new SUVCar(new CivilCar());
-        Vehicle vehicle = new SUVCar(new CivilCar());
-        Tank tankmodel = new Tank();
-        tankmodel.setHorsePower(400);
+        Vehicle veh = new SUVCar();
+        Vehicle vehicle = new SUVCar();
+        Tank tankmodel = new InfantryTank();
         tankmodel.setNrOfDoors(2);
         tankmodel.setNrOfSeats(12);
-        Vehicle tank = new InfantryTank(tankmodel);
-        tank.getVehicleType().getHorsePower();
+        Vehicle tank = new InfantryTank();
         tank.print();
         vehicle.addPart(bombproofArmoring);
         vehicle.addPart(electronicArmor);
