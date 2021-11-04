@@ -1,6 +1,7 @@
 package com.example.Factories.CarFactory;
 
 import com.example.DriveFactory.DieselDriveFactory;
+import com.example.DriveFactory.PetrolDriveFactory;
 import com.example.Parts.DriveTrain.DriveTrain;
 import com.example.Parts.DriveTrain.FuelDriveTrain;
 import com.example.Parts.Engines.Engine;
@@ -16,10 +17,10 @@ public class NascarFactory implements AbstractCarFactory {
 
     @Override
     public DriveTrain makeDriveParts() {
-        DieselDriveFactory dieselDriveFactory = new DieselDriveFactory();
-        Engine e = dieselDriveFactory.makeEngine(200);
-        FuelTank fuelTank = dieselDriveFactory.makeFuelStorage(80);
-        DriveTrain driveTrain = new FuelDriveTrain(e, fuelTank)
+        PetrolDriveFactory petrolDriveFactory = new PetrolDriveFactory();
+        Engine engine = petrolDriveFactory.makeEngine(150);
+        FuelTank fuelTank = petrolDriveFactory.makeFuelStorage(80);
+        DriveTrain driveTrain = new FuelDriveTrain(engine, fuelTank)
         return driveTrain;
     }
 
