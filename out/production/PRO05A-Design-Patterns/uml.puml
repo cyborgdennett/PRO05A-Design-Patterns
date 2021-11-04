@@ -1,0 +1,19 @@
+Composition *--
+Aggregation o--
+Extension <|--
+Instantiates -.//
+@startuml
+
+
+class Airplane{}
+class Flap{}
+class Eng{}
+class Pilot{}
+class Rec{} 
+
+App -.> Rec
+Rec -.> Airplane
+Pilot "3" o- Airplane
+Airplane --o "2" Flap
+Airplane --> "4" Eng
+@endul 

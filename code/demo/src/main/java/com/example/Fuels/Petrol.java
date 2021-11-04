@@ -7,3 +7,4 @@ public class Petrol implements Fuel{
         System.out.println("Petrol");
     }
 }
+    

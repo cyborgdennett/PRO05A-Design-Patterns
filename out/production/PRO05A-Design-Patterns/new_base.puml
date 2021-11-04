@@ -118,17 +118,16 @@ skinparam linetype ortho
 ' ---Car classes
 
 together $vehicle {
-abstract class Vehicle{
+interface Vehicle{
     - Owner owner
 
     - nrOfSeats : int
-    - nrOfDoors : int
-    + Vehicle(driveTrain : DriveTrain)
 
     - Part[] parts
     - FuelStorage[] fuel
     - Armoring armor
     - DriveTrain driveTrain
+    - VehicleType use
 
     rangeLeft()
     fill(Fuel)
@@ -138,26 +137,27 @@ abstract class Vehicle{
     removePart(Part)
     addPart(Part)
 }
-    class Cabrio extends CivilCar{
+    class Cabrio implements Vehicle{
         openroof()
         closeroof()
     }
-    class F1 extends RaceCar{}
-    class Nascar extends RaceCar{}
-    class InfantryTank extends Tank{}
-    class Sedan extends CivilCar{}
-    class SUV extends CivilCar{}
+    class Crossover implements Vehicle{}
+    class Sedan implements Vehicle{}
+    class SUV implements Vehicle{}
 
 }
-abstract class CivilCar extends Vehicle{
+interface VehicleType{
+    +void print()
+}
+class CivilCar implements VehicleType{
     +void print()
 }
 
-abstract class Tank extends Vehicle{
+class Tank implements VehicleType{
     +void print()
 }
 
-abstract class RaceCar extends Vehicle{
+class RaceCar implements VehicleType{
     +void print()
 }
 
@@ -401,6 +401,7 @@ Vehicle "0..inf" *--o "1" Owner : "has"
 ' ---Car relations to its parts and features
 
 Vehicle --o Part : "has"
+Vehicle --* "1" VehicleType
 Vehicle --o "0..1" Armoring : "can have"
 
 ' ---Fuel relation with Engine

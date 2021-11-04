@@ -9,11 +9,15 @@ Instantiates -. >
 
 abstract class Car{}
     class CabrioCar{}
-    class TankCar{}
+    class TankCar{} 
     class CrossoverCar{}
     class SedanCar{}
     class SUVCar{}
 
+interface Usecase{}
+    class RaceUsecase implements Usecase{}
+    class ArmyUsecase implements Usecase{}
+    class NormalUsecase implements Usecase{}
 
 interface Armoring{}
     class BombproofArmoring extends Armoring{}
@@ -25,8 +29,9 @@ interface Armoring{}
 interface Part{}
     interface Engine implements Part{}
         abstract class LiquidEngine implements Engine{}
-            class PetrolEngine extends LiquidEngine{}
-            class DieselEgine extends LiquidEngine{}
+            class EA111PetrolEngine extends LiquidEngine{} 
+            class EA211PetrolEngine extends LiquidEngine{} 
+            class EA288DieselEgine extends LiquidEngine{} 
         abstract class GaseousEngine implements Engine{}
             class LNGEngine extends GaseousEngine{}
             class HydrogenEngine extends GaseousEngine{}
@@ -36,20 +41,12 @@ interface Part{}
         class LiquidFuelStorage implements FuelStorage{}
         class GaseousFuelStorage implements FuelStorage{}
         class ElectricFuelStorage implements FuelStorage{}
-    ' Extra's
-    interface Rim implements Part{}
-        class DefaultRim implements Rim{}
-        class ChromeRim implements Rim{}
-    interface Seat implements Part{}
-        class FabricSeat implements Seat{}
-        class LeatherSet implements Set{}
-    
-    
 
 interface Fuel{}
     abstract class LiquidFuel implements Fuel{}
-        class PetrolLiquidFuel extends LiquidFuel{}
-        class ieselLiquidFuel extends LiquidFuel{}
+        class E10PetrolLiquidFuel extends LiquidFuel{}
+        class E5PetrolLiquidFuel extends LiquidFuel{}
+        class B7DieselLiquidFuel extends LiquidFuel{}
     abstract class GaseousFuel implements Fuel{}
         class LNGGaseousFuel extends GaseousFuel{}
         class HydrogenGaseousFuel extends GaseousFuel{}
@@ -62,21 +59,11 @@ class Factory implements Owner{}
 ' ---AbstractFactory class
 
 
-interface DriveFactory
-    class ElectricDriveFactory implements CarFactory{}
-    class DieselDriveFactory implements CarFactory{}
-    class LNGDriveFactory implements CarFactory{}
-    class HydrogenDriveFactory implements CarFactory{}
-
-interface CarFactory
-    class SUVCarFactory implements CarFactory{}
-    class CabrioCarFactory implements CarFactory{}
-    class CrossoverCarFactory implements CarFactory{}
-    class SedanCarFactory implements CarFactory{}
 
 ' ---Dealer classes
 
 class Dealer implements Owner{}
+
 
 ' ---Customer classes
 
@@ -105,8 +92,6 @@ skinparam rectangleBorderThickness 1
 skinparam defaultTextAlignment center
 skinparam lifelineStrategy solid
 
-skinparam wrapMessageWidth 100
-
 ' left to right direction
 skinparam linetype polyline
 skinparam linetype ortho
@@ -117,83 +102,62 @@ skinparam linetype ortho
 
 ' ---Car classes
 
-together $vehicle {
-abstract class Vehicle{
-    - Owner owner
+together $car {
+interface Car{
+    Owner owner
 
-    - nrOfSeats : int
-    - nrOfDoors : int
-    + Vehicle(driveTrain : DriveTrain)
-
-    - Part[] parts
-    - FuelStorage[] fuel
-    - Armoring armor
-    - DriveTrain driveTrain
+    Part[] parts
+    FuelStorage[] fuel
+    Usecase[] use
+    Armoring[] armor
 
     rangeLeft()
     fill(Fuel)
-    + drive()
-    + brake()
-
-    removePart(Part)
-    addPart(Part)
+    drive()
 }
-    class Cabrio extends CivilCar{
+    class CabrioCar implements Car{
         openroof()
         closeroof()
     }
-    class F1 extends RaceCar{}
-    class Nascar extends RaceCar{}
-    class InfantryTank extends Tank{}
-    class Sedan extends CivilCar{}
-    class SUV extends CivilCar{}
-
+    class TankCar implements Car{
+        shoot()
+    } 
+    class CrossoverCar implements Car{}
+    class SedanCar implements Car{}
+    class SUVCar implements Car{}
 }
-abstract class CivilCar extends Vehicle{
-    +void print()
+together $usecase{
+interface Usecase{
+    defaultmode()
 }
-
-abstract class Tank extends Vehicle{
-    +void print()
+    class RaceUsecase implements Usecase{
+        racemode()
+    }
+    class ArmyUsecase implements Usecase{
+        fightmode()
+    }
+    class NormalUsecase implements Usecase{}
 }
-
-abstract class RaceCar extends Vehicle{
-    +void print()
-}
-
-' ---Armoring uses decorator
 together $armor{
 interface Armoring{
     int health
-    activate()
 }
-    class Armor implements Armoring{
-        activate()
-    }
-    class ArmorDecorator implements Armoring{
-        activate(previous)
-    }
-    class BombproofArmoring extends ArmorDecorator{
+    class BombproofArmoring implements Armoring{
         int maxExplosiveForce
+    }
+    class ElectronicArmoring implements Armoring{
         activate()
     }
-    class ElectronicArmoring extends ArmorDecorator{
+    class GasResistantArmoring implements Armoring{
         activate()
     }
-    class GasResistantArmoring extends ArmorDecorator{
-        activate()
-    }
-    class BulletproofArmoring extends ArmorDecorator{
+    class BulletproofArmoring implements Armoring{
         int maxCalibre
-        activate()
     }
 }
-
 together $part{
 interface Part{
     Date made
-    +print()
-
 }
     interface Engine implements Part{
         int torque
@@ -201,13 +165,20 @@ interface Part{
 
         float efficiency
 
-        insertFuel(Fuel)
+        bool state
+
+        start()
+        stop()
+
+        accelerate()
     }
         abstract class LiquidEngine implements Engine{
             inject()
         }
-            class PetrolEngine extends LiquidEngine{} 
-            class DieselEgine extends LiquidEngine{}
+            ' Volkswagen motors
+            class EA111PetrolEngine extends LiquidEngine{} 
+            class EA211PetrolEngine extends LiquidEngine{} 
+            class EA288DieselEgine extends LiquidEngine{}
         abstract class GaseousEngine implements Engine{
             inject()
         }
@@ -238,38 +209,20 @@ interface Part{
             float minAmpere
             float maxAmpere
         }
-    interface Rim implements Part{}
-        class DefaultRim implements Rim{}
-        class ChromeRim implements Rim{}
-    interface Seat implements Part{}
-        class FabricSeat implements Seat{}
-        class LeatherSeat implements Seat{}
-    
 }
-
-together $DriveTrain {
-class DriveTrain{
-    -Engine engine
-    -FuelStorage storage
-
-    +accelerate() 
-    +fill(Fuel)
-}
-
-}
-
 together $fuel {
 interface Fuel{
     float kwh
     float amount
 
-    use(float amount)
+    delete()
 }
     abstract class LiquidFuel implements Fuel{
         float litre
     }
-        class PetrolLiquidFuel extends LiquidFuel{}
-        class DieselLiquidFuel extends LiquidFuel{}
+        class E10PetrolLiquidFuel extends LiquidFuel{}
+        class E5PetrolLiquidFuel extends LiquidFuel{}
+        class B7DieselLiquidFuel extends LiquidFuel{}
     abstract class GaseousFuel implements Fuel{
         float litre
     }
@@ -286,55 +239,22 @@ together $market{
 class Factory implements Owner{
     FactoryOrder[] incoming_orders
     Part[] parts
-    Vehicle[] unfinished_vehicles
+    Car[] unfinished_cars
 
     makePart()
-    makeVehicle()
+    makeCar()
 
     buyPart()
     sellPart()
 }
 
-interface DriveFactory{
-    +makeEngine()
-    +makeFuelStorage()
-    +makeDriveTrain()
-}
-    class ElectricDriveFactory implements DriveFactory{}
-    class DieselDriveFactory implements DriveFactory{}
-    class PetrolDriveFactory implements DriveFactory{}
-    class LNGDriveFactory implements DriveFactory{}
-    class HydrogenDriveFactory implements DriveFactory{}
-
-interface AbstractCarFactory{
-    -DriveTrain makeDriveParts()
-    -Seat makeSeats()
-    -Rim makeRims()
-    +Vehicle makeCar()
-}
-    class SUVCarFactory implements AbstractCarFactory{}
-    class CabrioCarFactory implements AbstractCarFactory{}
-    class CrossoverCarFactory implements AbstractCarFactory{}
-    class SedanCarFactory implements AbstractCarFactory{}
-
 ' ---Dealer classes
 
 class Dealer implements Owner{
-    -FactoryOrder[] outgoing_orders
-    -CarOrder[] incoming_orders
-    -Part[] parts
-    -list<Vehicle, float price, float discount> discount_car_catalogue
-    -list<Vehicle, float price> car_catalogue
+    FactoryOrder[] outgoing_orders
+    CarOrder[] incoming_orders
 
-    +showCatalogue()
-    +showDiscountCatalogue()
-
-    +orderCar()
-'    Return the car with added features
-    +Vehicle refurbishCar(Vehicle v)
-
-    -changePrice()
-
+    showCatalogue()
 }
 
 
@@ -348,11 +268,11 @@ class Customer implements Owner{
 ' ---Helpingclasses
 
 interface Owner{
-    Vehicle[] Vehicles
-    int money
+    Car[] cars
+    (?)int money
 
-    void sell(Vehicle)
-    void buy(Vehicle)
+    sell()
+    buy()
 }
 }
 
@@ -371,13 +291,13 @@ interface Order{
     send()
     accept()
 }
-    class VehicleOrder implements Order{
-        Vehicle vehicle
+    class CarOrder implements Order{
+        Car car
     }
     class FactoryOrder implements Order{
-        Vehicle vehicle
+        Car car
         int quantity
-    
+    }
     class PartOrder implements Order{
         Part part
         int quantity
@@ -389,25 +309,26 @@ interface Order{
 ' ---Market relations
 
 Owner -.> Order : "Makes an order"
-Vehicle "0..inf"--o "1" Customer
-Vehicle "0..inf"--o "1" Dealer
-Vehicle "0..inf"--o "1" Factory
-Vehicle <.- Factory : "Produces"
+Car "0..inf"--o "1" Owner
+Car "0..inf"--o "1" Customer
+Car "0..inf"--o "1" Dealer
+Car "0..inf"--o "1" Factory
+Car <.- Factory : "Produces"
 Dealer <.-  Customer : "Buys from"
 Dealer -.> Factory : "Buys from"
 
-Vehicle "0..inf" *--o "1" Owner : "has"
+
 
 ' ---Car relations to its parts and features
 
-Vehicle --o Part : "has"
-Vehicle --o "0..1" Armoring : "can have"
+Car --o Usecase : "has"
+Car --o Armoring : "can have"
+Car --o Part : "has"
+Car --o "1" Owner : "has"
 
 ' ---Fuel relation with Engine
 
-DriveTrain -o "1" Engine
-DriveTrain -o "1" FuelStorage 
-Engine -o Fuel : "burns"
+Engine -> Fuel : "burns"
 
 ' ---Fuel relation with FuelStorage
 
