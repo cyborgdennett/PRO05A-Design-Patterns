@@ -3,7 +3,7 @@ package Factory;
 import Owner.Owner;
 import Vehicle.Vehicle;
 
-public class RaceFactory extends Owner {
+public class RaceFactory extends Owner implements CarFactory{
     @Override
     public Vehicle getVehicle(int integer) {
         return null;
@@ -22,5 +22,15 @@ public class RaceFactory extends Owner {
     @Override
     public void buyOrder(Vehicle vehicle) {
 
+    }
+
+    @Override
+    public Vehicle createVehicle(Order order) {
+        return null;
+    }
+
+    @Override
+    public Vehicle createDriveTrain(Order order) {
+        return null;
     }
 }

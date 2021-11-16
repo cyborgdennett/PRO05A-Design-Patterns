@@ -1,27 +1,36 @@
 package com.company.owner;
 
 import com.company.vehicle.Vehicle;
-import com.company.vehicle.VehicleBuilder;
 
 public class Dealer extends Owner {
 
+    Factory factory;
+
+    public Dealer (Factory factory) {
+        this.factory = factory;
+    }
+
     // Methods
     @Override
-    public void getVehicle(Vehicle vehicle) {
-
+    public Vehicle getVehicle(int vehicle) {
+        return super.vehicles.get(vehicle);
     }
+
+
+
+
+
 
     @Override
-    public void giveVehicle(int vehicle) {
-
+    public void trade(Vehicle vehicle, Owner to) {
+        removeVehicle(vehicle);
+        to.addVehicle(vehicle);
+        System.out.println("Vehicle has now a new owner!");
     }
 
-    /*
-    Dealer()
-     */
-
-    Vehicle orderVehicleFromFactory(Factory factory, VehicleBuilder vehicleBuilder, String s, int i) {
-        return null;
+    Vehicle orderVehicleFromFactory(Vehicle.VehicleBuilder vehicleBuilder) {
+        factory.changeBuilder(vehicleBuilder);
+        return factory.createVehicle();
     }
 
 }

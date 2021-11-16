@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1e17aeb2-b8b9-488a-bfc5-d500c88ca1d4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/demo_her/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_her/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_her/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_her/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_her/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_her/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_her/com/company/demo_her.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_her/com/company/out/production/demo_her/com/company/demo_her.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Factories/CarFactory/AbstractCarFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Factories/CarFactory/CabrioCarFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Factories/CarFactory/F1Factory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Factories/CarFactory/InfantryTankFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Factories/CarFactory/NascarFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Factories/CarFactory/SUVFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Factories/CarFactory/SedanFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Fuels/Diesel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Fuels/Fuel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Fuels/Petrol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Armoring/Armor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Armoring/ArmorDecorator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Armoring/BombproofArmoring.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Armoring/BulletproofArmoring.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Armoring/ElectronicArmoring.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Armoring/GasResistantArmoring.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/DriveTrain/DriveTrain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/DriveTrain/ElectricDriveTrain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/DriveTrain/FuelDriveTrain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/DriveTrain/HybridDriveTrain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Engines/ElectricEngine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Engines/Engine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Engines/FuelEngine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Rims/ChromeRim.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Rims/DefaultRim.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Rims/Rim.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Seats/FabricSeat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Seats/LeatherSeat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Seats/Seat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Storage/Battery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Parts/Storage/FuelTank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Trade/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Trade/Dealer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Trade/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Trade/Owner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/VehicleTypes/CivilCar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/VehicleTypes/RaceCar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/VehicleTypes/Tank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Vehicles/F1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Vehicles/InfantryTank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Vehicles/Nascar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Vehicles/SUVCar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Vehicles/SedanCar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/example/Vehicles/Vehicle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/drivetrain/DriveTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/drivetrain/DriveTrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/drivetrain/engine/CombustionEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/drivetrain/engine/CombustionEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/drivetrain/engine/ElectricEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/drivetrain/engine/ElectricEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/drivetrain/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/drivetrain/engine/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/drivetrain/fuelstorage/Battery.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/drivetrain/fuelstorage/Battery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/drivetrain/fuelstorage/FuelStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/drivetrain/fuelstorage/FuelStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/drivetrain/fuelstorage/GasStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/drivetrain/fuelstorage/GasStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/drivetrain/fuelstorage/LiquidStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/drivetrain/fuelstorage/LiquidStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/owner/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/owner/Dealer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/owner/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/owner/Factory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/owner/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/owner/Owner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/owner/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/owner/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/parts/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/parts/Armor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/parts/ArmorDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/parts/ArmorDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/parts/Armoring.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/parts/Armoring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/parts/BombproofArmoring.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/parts/BombproofArmoring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/parts/BulletproofArmoring.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/parts/BulletproofArmoring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/parts/ElectronicArmoring.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/parts/ElectronicArmoring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/parts/GasResistantArmoring.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/parts/GasResistantArmoring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/parts/Part.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/parts/Part.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/vehicle/ArmyVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/vehicle/ArmyVehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/vehicle/CivilianVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/vehicle/CivilianVehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/vehicle/RaceVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/vehicle/RaceVehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/vehicle/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/vehicle/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_her/vehicle/VehicleBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_her/com/company/vehicle/VehicleBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_new/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_new/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_new/src/Factory/ArmyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_new/src/Factory/ArmyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_new/src/Factory/CivilianFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_new/src/Factory/CivilianFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_new/src/Factory/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_new/src/Factory/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_new/src/Factory/RaceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_new/src/Factory/RaceFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_new/src/Vehicle/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_new/src/Vehicle/Vehicle.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="20m14A4SwF0Nz2okx9bVAsgRwOT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/demo" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1e17aeb2-b8b9-488a-bfc5-d500c88ca1d4" name="Changes" comment="" />
+      <created>1636634754945</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1636634754945</updated>
+      <workItem from="1636634756219" duration="205000" />
+      <workItem from="1637059939892" duration="21000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

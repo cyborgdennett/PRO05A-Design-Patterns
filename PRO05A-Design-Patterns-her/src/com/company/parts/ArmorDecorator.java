@@ -3,7 +3,7 @@ package com.company.parts;
 public abstract class ArmorDecorator extends Armoring {
 
     // Variables
-    Armoring armoring;
+    protected Armoring armoring;
 
     // Constructor
     public ArmorDecorator(Armoring armoring) {
@@ -11,8 +11,15 @@ public abstract class ArmorDecorator extends Armoring {
     }
 
     // Methods
-    @Override
     public void activate() {
-
+        armoring.activate();
     }
+    public void disable(){
+        armoring.activate();
+    }
+    @Override
+    public int price(){
+        return super.price() + price;
+    }
+
 }

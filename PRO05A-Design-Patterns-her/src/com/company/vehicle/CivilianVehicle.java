@@ -5,17 +5,21 @@ import com.company.parts.Part;
 public class CivilianVehicle extends Vehicle {
 
     // Variables
-    String type;
 
     // Constructor
-    public CivilianVehicle(String type) {
-        this.type = type;
+    public CivilianVehicle(Vehicle.VehicleBuilder vehicleBuilder) {
+        super(vehicleBuilder);
     }
 
     // Methods
     @Override
     public int rangeLeft() {
         return 0;
+    }
+
+    @Override
+    public void fill() {
+        System.out.println("Filling up: " + driveTrain.getFuelStorage().getClass());
     }
 
     @Override
@@ -27,16 +31,4 @@ public class CivilianVehicle extends Vehicle {
     public void brake() {
 
     }
-
-    @Override
-    public Part removePart(Part part) {
-        return null;
-    }
-
-    @Override
-    public void addPart(Part part) {
-
-    }
-
-    // void createType(type)
 }

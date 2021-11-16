@@ -5,11 +5,11 @@ import com.company.parts.Part;
 public class RaceVehicle extends Vehicle {
 
     // Variables
-    String type;
+
 
     // Constructor
-    public RaceVehicle(String type) {
-        this.type = type;
+    public RaceVehicle(Vehicle.VehicleBuilder vehicleBuilder) {
+        super(vehicleBuilder);
     }
 
     // Methods
@@ -19,24 +19,18 @@ public class RaceVehicle extends Vehicle {
     }
 
     @Override
-    public void drive() {
+    public void fill() {
+        System.out.println("Filling up fast like race car." + super.driveTrain.getFuelStorage().toString());
+    }
 
+    @Override
+    public void drive() {
+        super.driveTrain.getFuelStorage().use();
+        System.out.println("RACING!");
     }
 
     @Override
     public void brake() {
-
+        System.out.println("Braking!");
     }
-
-    @Override
-    public Part removePart(Part part) {
-        return null;
-    }
-
-    @Override
-    public void addPart(Part part) {
-
-    }
-
-    // void createType(type)
 }

@@ -6,8 +6,8 @@ import com.company.drivetrain.fuelstorage.FuelStorage;
 public class DriveTrain {
 
     // Variables
-    FuelStorage fuelStorage;
-    Engine engine;
+    private FuelStorage fuelStorage;
+    private Engine engine;
 
     // Constructor
     public DriveTrain(FuelStorage fuelStorage, Engine engine) {
@@ -15,5 +15,24 @@ public class DriveTrain {
         this.engine = engine;
     }
 
-    //    public void fill(Fuel fuel)
+    public FuelStorage getFuelStorage() {
+        return fuelStorage;
+    }
+
+    public void setFuelStorage(FuelStorage fuelStorage) {
+        this.fuelStorage = fuelStorage;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    @Override
+    public String toString(){
+        return engine.toString() + " " + fuelStorage.toString();
+    }
 }

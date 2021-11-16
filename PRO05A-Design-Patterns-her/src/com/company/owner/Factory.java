@@ -1,47 +1,50 @@
 package com.company.owner;
 
+import com.company.vehicle.ArmyVehicle;
+import com.company.vehicle.CivilianVehicle;
+import com.company.vehicle.RaceVehicle;
 import com.company.vehicle.Vehicle;
-import com.company.vehicle.VehicleBuilder;
 
 public class Factory extends Owner {
 
     // Variables
-    VehicleBuilder vehicleBuilder;
+    private Vehicle.VehicleBuilder vehicleBuilder;
 
     // Constructor
-    public Factory(VehicleBuilder vehicleBuilder) {
+    public Factory(Vehicle.VehicleBuilder vehicleBuilder) {
         this.vehicleBuilder = vehicleBuilder;
     }
 
     // Methods
-    @Override
-    public void getVehicle(Vehicle vehicle) {
 
+    public Vehicle createVehicle(){
+        if (vehicleBuilder.type == Vehicle.VehicleBuilder.Type.RACE) {
+            return createRaceVehicle();
+        } else if (vehicleBuilder.type == Vehicle.VehicleBuilder.Type.CIVIL) {
+            return createCivilianVehicle();
+        } else if (vehicleBuilder.type == Vehicle.VehicleBuilder.Type.ARMY) {
+            return createArmyVehicle();
+        } else {
+            return null;
+        }
     }
 
-    @Override
-    public void giveVehicle(int vehicle) {
-
+    private Vehicle createRaceVehicle() {
+        return new RaceVehicle(this.vehicleBuilder);
     }
 
-    /*
-    Factory(VehicleBuilder);
-     */
-
-    public Vehicle createRaceVehicle(VehicleBuilder vehicleBuilder) {
-        return null;
+    private Vehicle createCivilianVehicle() {
+        return new CivilianVehicle(this.vehicleBuilder);
     }
 
-    public Vehicle createCivilianVehicle(VehicleBuilder vehicleBuilder) {
-        return null;
-    }
-
-    public Vehicle createArmyVehicle(VehicleBuilder vehicleBuilder) {
-        return null;
+    private Vehicle createArmyVehicle() {
+        return new ArmyVehicle(this.vehicleBuilder);
     }
 
     // Setter
-    public void changeBuilder(VehicleBuilder vehicleBuilder) {
+    public void changeBuilder(Vehicle.VehicleBuilder vehicleBuilder) {
         this.vehicleBuilder = vehicleBuilder;
     }
+
+
 }

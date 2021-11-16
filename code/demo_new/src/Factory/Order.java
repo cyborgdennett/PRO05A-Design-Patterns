@@ -3,6 +3,6 @@ package Factory;
 import Vehicle.Vehicle;
 
 public interface Order {
-    public Vehicle getVehicle(int integer);
-    public void giveVehicle(Vehicle vehicle);
+    Vehicle getVehicle(int integer);
+    void giveVehicle(Vehicle vehicle);
 }

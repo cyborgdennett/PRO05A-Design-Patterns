@@ -1,22 +1,97 @@
 package com.company.vehicle;
 
 import com.company.drivetrain.DriveTrain;
-import com.company.parts.Part;
+import com.company.owner.Owner;
+import com.company.parts.*;
 
 import java.util.ArrayList;
 
-public abstract class Vehicle {
+public abstract class  Vehicle {
+    protected String model;
+    protected DriveTrain driveTrain;
+    protected String color;
+    protected Armoring armor;
+    protected ArrayList<Part> parts;
 
-    DriveTrain driveTrain;
-    String color;
-    ArrayList<Part> parts;
-    VehicleBuilder vehicleBuilder;
-//    Vehicle(VehicleBuilder)
+    public Vehicle(VehicleBuilder vehicleBuilder){
+        this.model = vehicleBuilder.model;
+        this.driveTrain = vehicleBuilder.driveTrain;
+        this.color = vehicleBuilder.color;
+        this.armor = vehicleBuilder.armor;
+    }
+
     public abstract int rangeLeft();
-//    public abstract void fill(Fuel fuel);
     public abstract void drive();
     public abstract void brake();
-    public abstract Part removePart(Part part);
-    public abstract void addPart(Part part);
+    public Part removePart(Part part){
+        return part;
+    };
+    public void addPart(Part part){
 
+    };
+
+    public void fill(){
+        System.out.println(model + " is filling up.");
+    };
+
+
+    public static class VehicleBuilder {
+        public enum Type{
+            CIVIL, RACE, ARMY
+        }
+        // Variables
+        public final DriveTrain driveTrain;
+        public String model;
+        public String color;
+        public Type type;
+        public Armoring armor;
+
+        // Constructor
+        public VehicleBuilder(DriveTrain driveTrain, Type type, String model, String color) {
+            this.driveTrain = driveTrain;
+            this.model = model;
+            this.type = type;
+            this.color = color;
+        }
+
+        void armor(Armoring armor){
+            this.armor = armor;
+        }
+
+        void addNonNecessary() {
+
+        }
+
+        public void print(){
+            System.out.println(model);
+            System.out.println(driveTrain.toString());
+            System.out.println();
+        }
+        public String toSmallString(){
+            return "VehicleBuilder: \n" +
+                    "model: " + this.model +
+                    " color: " + this.color + "\n";
+        }
+        @Override
+        public String toString(){
+            return "VehicleBuilder: \n" +
+                    "model: " + model +
+                    " color: " + color + "\n" +
+                    driveTrain.toString() +
+                    armor == null || armor instanceof Armor ? "": armor.toString() + "\n";
+        }
+    }
+    public String toSmallString(){
+        return "VehicleBuilder: \n" +
+                "model: " + model +
+                " color: " + color + "\n";
+    }
+    @Override
+    public String toString(){
+        return "VehicleBuilder: \n" +
+                "model: " + model +
+                " color: " + color + "\n" +
+                driveTrain.toString() +
+                (armor == null || armor instanceof Armor ? "": armor.toString()) + "\n";
+    }
 }
