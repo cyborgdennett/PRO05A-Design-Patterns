@@ -1,7 +1,12 @@
 package com.company.drivetrain;
 
+import com.company.drivetrain.engine.CombustionEngine;
+import com.company.drivetrain.engine.ElectricEngine;
 import com.company.drivetrain.engine.Engine;
+import com.company.drivetrain.fuelstorage.Battery;
 import com.company.drivetrain.fuelstorage.FuelStorage;
+import com.company.drivetrain.fuelstorage.GasStorage;
+import com.company.drivetrain.fuelstorage.LiquidStorage;
 
 public class DriveTrain {
 
@@ -10,9 +15,16 @@ public class DriveTrain {
     private Engine engine;
 
     // Constructor
-    public DriveTrain(FuelStorage fuelStorage, Engine engine) {
-        this.fuelStorage = fuelStorage;
-        this.engine = engine;
+    public DriveTrain(FuelStorage fuelStorage, Engine engine) throws IllegalArgumentException{
+        if(fuelStorage instanceof Battery  && engine instanceof ElectricEngine ||
+                ((fuelStorage instanceof LiquidStorage || fuelStorage instanceof GasStorage) && engine instanceof CombustionEngine))
+        {
+            this.fuelStorage = fuelStorage;
+            this.engine = engine;
+        }
+        else {
+            throw new IllegalArgumentException("Engine must match Fuelstorage type!");
+        }
     }
 
     public FuelStorage getFuelStorage() {
@@ -34,5 +46,9 @@ public class DriveTrain {
     @Override
     public String toString(){
         return engine.toString() + " " + fuelStorage.toString();
+    }
+
+    public int price(){
+        return engine.price() + fuelStorage.price();
     }
 }

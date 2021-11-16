@@ -11,13 +11,13 @@ public abstract class Owner {
 
     // Constructor
     public Owner() {
-        vehicles = new Vector<Vehicle>();
+        vehicles = new Vector<>();
     }
 
     // Abstract methods
 
-    public Vehicle getVehicle(int vehicle) {
-        return vehicles.get(vehicle);
+    public Vehicle getVehicle() {
+        return vehicles.firstElement();
     }
 
     public Vehicle removeVehicle(Vehicle vehicle) {
@@ -51,5 +51,16 @@ public abstract class Owner {
             System.out.println(v.toString());
         }
     }
+
+    public boolean trade(String model, int amt, Owner to){
+        if(amt > (int)vehicles.stream().filter(t -> t.getModel() == model).count()){
+            System.out.println("Owner does not have this amount of the specified cars");
+            return false;
+        }
+        for(int i = 0; i < amt; i++){
+            this.trade(vehicles.stream().filter(t -> t.getModel() == model).findFirst().get(), to);
+        }
+        return true;
+    };
 
 }

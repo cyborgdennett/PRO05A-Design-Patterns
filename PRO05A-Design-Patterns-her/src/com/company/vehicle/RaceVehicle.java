@@ -33,4 +33,9 @@ public class RaceVehicle extends Vehicle {
     public void brake() {
         System.out.println("Braking!");
     }
+
+    @Override
+    public int price(){ //Sport cars are expensive.
+        return (int)(super.price() * 1.6);
+    }
 }

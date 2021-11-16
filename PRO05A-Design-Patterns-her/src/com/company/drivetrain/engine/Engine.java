@@ -1,6 +1,8 @@
 package com.company.drivetrain.engine;
 
-public interface Engine {
+import com.company.parts.Part;
+
+public interface Engine extends Part {
 
     void accelerate();
     void shiftUp();

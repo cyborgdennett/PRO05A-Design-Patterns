@@ -31,4 +31,9 @@ public class CivilianVehicle extends Vehicle {
     public void brake() {
 
     }
+
+    @Override
+    public int price(){//Civilian cars are cheap
+        return (int)(super.price() * 1.2);
+    }
 }

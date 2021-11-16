@@ -17,15 +17,30 @@ public class Factory extends Owner {
 
     // Methods
 
-    public Vehicle createVehicle(){
-        if (vehicleBuilder.type == Vehicle.VehicleBuilder.Type.RACE) {
-            return createRaceVehicle();
-        } else if (vehicleBuilder.type == Vehicle.VehicleBuilder.Type.CIVIL) {
-            return createCivilianVehicle();
-        } else if (vehicleBuilder.type == Vehicle.VehicleBuilder.Type.ARMY) {
-            return createArmyVehicle();
-        } else {
-            return null;
+    public Boolean createVehicle(int amt){
+        try {
+            Vehicle newVehicle;
+            switch (vehicleBuilder.type) {
+                case RACE:
+                    newVehicle = createRaceVehicle();
+                    break;
+                case CIVIL:
+                    newVehicle = createCivilianVehicle();
+                    break;
+                case ARMY:
+                    newVehicle = createArmyVehicle();
+                    break;
+                default:
+                    return false;
+            }
+            for(int i = 0; i < amt; i++){
+                vehicles.add(newVehicle);
+            }
+            System.out.println(Integer.toString(amt) + " Vehicle(s) build..");
+            return true;
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+            return false;
         }
     }
 
@@ -34,6 +49,7 @@ public class Factory extends Owner {
     }
 
     private Vehicle createCivilianVehicle() {
+
         return new CivilianVehicle(this.vehicleBuilder);
     }
 

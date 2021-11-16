@@ -54,7 +54,7 @@ public abstract class  Vehicle {
             this.color = color;
         }
 
-        void armor(Armoring armor){
+        public void armor(Armoring armor){
             this.armor = armor;
         }
 
@@ -82,16 +82,27 @@ public abstract class  Vehicle {
         }
     }
     public String toSmallString(){
-        return "VehicleBuilder: \n" +
+        return "Vehicle: \n" +
                 "model: " + model +
                 " color: " + color + "\n";
     }
     @Override
     public String toString(){
-        return "VehicleBuilder: \n" +
+        return "Vehicle: \n" +
                 "model: " + model +
                 " color: " + color + "\n" +
                 driveTrain.toString() +
                 (armor == null || armor instanceof Armor ? "": armor.toString()) + "\n";
+    }
+
+    public String getModel(){
+        return model;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+    public int price(){
+        return driveTrain.price() + (armor == null || armor instanceof Armor ? 0 : armor.price());
     }
 }

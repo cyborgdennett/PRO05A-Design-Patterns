@@ -19,26 +19,68 @@ import com.company.owner.Dealer;
 import com.company.owner.Factory;
 import com.company.owner.Owner;
 import com.company.owner.User;
+import com.company.parts.*;
 import com.company.vehicle.Vehicle;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Vehicle.VehicleBuilder vehicleBuilder = new Vehicle.VehicleBuilder(new DriveTrain(new LiquidStorage(), new CombustionEngine()), Vehicle.VehicleBuilder.Type.RACE,"F1", "red");
-        Factory factory = new Factory(new Vehicle.VehicleBuilder(new DriveTrain(new LiquidStorage(), new CombustionEngine()), Vehicle.VehicleBuilder.Type.RACE, "F1", "red"));
+        //Create vehicleBuilders
+        Vehicle.VehicleBuilder audi = new Vehicle.VehicleBuilder(new DriveTrain(new LiquidStorage(), new CombustionEngine()), Vehicle.VehicleBuilder.Type.RACE,"Audi A8", "white");
+        Vehicle.VehicleBuilder ferrari = new Vehicle.VehicleBuilder(new DriveTrain(new LiquidStorage(), new CombustionEngine()), Vehicle.VehicleBuilder.Type.RACE,"Ferrari Monza", "red");
+        Vehicle.VehicleBuilder tank = new Vehicle.VehicleBuilder(new DriveTrain(new LiquidStorage(), new CombustionEngine()), Vehicle.VehicleBuilder.Type.RACE,"LuftWaffe Z-88", "Camo");
 
-        Owner dealer = new Dealer(factory);
-        Factory sedanFactory = new Factory(new Vehicle.VehicleBuilder(new DriveTrain(new Battery(), new ElectricEngine()), Vehicle.VehicleBuilder.Type.CIVIL, "Sedan", "blue"));
-        sedanFactory.trade(sedanFactory.createVehicle(), dealer);
+        //Add armor to the tank
+        Armoring armor = new Armor();
+        armor = new BulletproofArmoring(armor, 5);
+        armor = new BombproofArmoring(armor, 10);
 
-        Owner user = new User();
-        dealer.addVehicle(factory.createVehicle());
-        dealer.getVehicle(0).fill();
+        //add armor to builder (Builder PATTERN)
+        tank.armor(armor);
 
-        dealer.trade(dealer.getVehicle(0), user);
-        user.getVehicle(0).drive();
-        user.printList();
+        //Create factory and add an builder
+        Factory sportCarManufacturer = new Factory(ferrari);
+        Factory tankFactory = new Factory(tank);
+
+        //Build 5 Cars.
+        sportCarManufacturer.createVehicle(5);
+
+        //Check the price of the Monza
+        System.out.println("Price of Ferrari Monza: " + Integer.toString(sportCarManufacturer.getVehicle().price()));
+
+        //change builder
+        sportCarManufacturer.changeBuilder(audi);
+
+        //Build 10 Cars.
+        sportCarManufacturer.createVehicle(10);
+
+        //Check the price of the audi.
+        System.out.println("Price of Audi A8: " + Integer.toString(sportCarManufacturer.getVehicle().price()));
+
+        //show list of cars from the factory:
+        sportCarManufacturer.printList();
+
+        //Create Dealer and order 6 audi's and 2 ferrari's as the Dealer
+        Dealer sportsDealer = new Dealer();
+        sportCarManufacturer.trade("Audi A8", 6, sportsDealer);
+        sportCarManufacturer.trade("Ferrari Monza", 2, sportsDealer);
+
+
+        //print the bought cars.
+        sportsDealer.printList();
+
+        //Sell to a user.
+        User richBoy = new User();
+
+        sportCarManufacturer.trade("Ferrari Monza", 1, richBoy);
+
+        richBoy.printList();
+
+        //RichBoy is not happy with the color red and wants a repaint. So he goes to the dealer
+        sportsDealer.paintJob(richBoy.getVehicle(), "Purple");
+
+        richBoy.printList();
 
     }
 }

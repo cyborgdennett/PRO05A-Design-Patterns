@@ -1,6 +1,8 @@
 package com.company.drivetrain.fuelstorage;
 
-public interface FuelStorage {
+import com.company.parts.Part;
+
+public interface FuelStorage extends Part {
     void use();
     void fill();
 }
