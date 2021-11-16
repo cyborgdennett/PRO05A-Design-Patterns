@@ -24,9 +24,11 @@ public class RaceVehicle extends Vehicle {
     }
 
     @Override
-    public void drive() {
-        super.driveTrain.getFuelStorage().use();
-        System.out.println("RACING!");
+    public void drive(){
+        System.out.println("Someone steps on the gas");
+        driveTrain.drive();
+        System.out.println("Speed increased by 20 kmph");
+        System.out.println("A lot of fuel was consumed");
     }
 
     @Override

@@ -82,5 +82,7 @@ public class Main {
 
         richBoy.printList();
 
+        //richBoy wants to drive in his fast car
+        richBoy.drive();
     }
 }

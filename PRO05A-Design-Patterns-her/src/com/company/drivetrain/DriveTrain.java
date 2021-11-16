@@ -51,4 +51,8 @@ public class DriveTrain {
     public int price(){
         return engine.price() + fuelStorage.price();
     }
+    public void drive(){
+        fuelStorage.use();
+        engine.accelerate();
+    }
 }

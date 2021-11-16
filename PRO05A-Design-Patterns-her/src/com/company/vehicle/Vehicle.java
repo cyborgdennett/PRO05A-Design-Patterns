@@ -21,7 +21,6 @@ public abstract class  Vehicle {
     }
 
     public abstract int rangeLeft();
-    public abstract void drive();
     public abstract void brake();
     public Part removePart(Part part){
         return part;
@@ -104,5 +103,11 @@ public abstract class  Vehicle {
     }
     public int price(){
         return driveTrain.price() + (armor == null || armor instanceof Armor ? 0 : armor.price());
+    }
+    public void drive(){
+        System.out.println("Someone steps on the gas");
+        driveTrain.drive();
+        System.out.println("Speed increased by 10 kmph");
+        System.out.println("Some fuel was consumed");
     }
 }

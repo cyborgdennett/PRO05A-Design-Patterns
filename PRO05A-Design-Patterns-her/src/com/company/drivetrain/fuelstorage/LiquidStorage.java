@@ -4,7 +4,7 @@ public class LiquidStorage implements FuelStorage {
 
     // Methods
     public void use() {
-        System.out.println("The fuel storage is now a bit emptier");
+        System.out.println("The fuel tank is now a bit emptier");
     }
 
     public void fill() {
