@@ -12,12 +12,9 @@ package com.company;
 
 import com.company.drivetrain.DriveTrain;
 import com.company.drivetrain.engine.CombustionEngine;
-import com.company.drivetrain.engine.ElectricEngine;
-import com.company.drivetrain.fuelstorage.Battery;
 import com.company.drivetrain.fuelstorage.LiquidStorage;
 import com.company.owner.Dealer;
 import com.company.owner.Factory;
-import com.company.owner.Owner;
 import com.company.owner.User;
 import com.company.parts.*;
 import com.company.vehicle.Vehicle;
@@ -47,7 +44,7 @@ public class Main {
         sportCarManufacturer.createVehicle(5);
 
         //Check the price of the Monza
-        System.out.println("Price of Ferrari Monza: " + Integer.toString(sportCarManufacturer.getVehicle().price()));
+        System.out.println("Price of Ferrari Monza: " + sportCarManufacturer.getVehicle().price());
 
         //change builder
         sportCarManufacturer.changeBuilder(audi);
@@ -56,7 +53,7 @@ public class Main {
         sportCarManufacturer.createVehicle(10);
 
         //Check the price of the audi.
-        System.out.println("Price of Audi A8: " + Integer.toString(sportCarManufacturer.getVehicle().price()));
+        System.out.println("Price of Audi A8: " + sportCarManufacturer.getVehicle().price());
 
         //show list of cars from the factory:
         sportCarManufacturer.printList();

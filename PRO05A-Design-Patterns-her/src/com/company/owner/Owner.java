@@ -44,8 +44,6 @@ public abstract class Owner {
         return vehicle;
     }
 
-
-
     public void printList(){
         for(Vehicle v : vehicles){
             System.out.println(v.toString());
