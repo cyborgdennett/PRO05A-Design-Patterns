@@ -4,7 +4,6 @@ public class GasResistantArmoring extends ArmorDecorator {
 
     // Constructor
     public GasResistantArmoring(Armoring armoring) {
-
         super(armoring);
         this.price = 800;
     }

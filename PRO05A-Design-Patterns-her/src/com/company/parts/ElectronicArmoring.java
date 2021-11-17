@@ -4,7 +4,6 @@ public class ElectronicArmoring extends ArmorDecorator {
 
     // Constructor
     public ElectronicArmoring(Armoring armoring) {
-
         super(armoring);
         this.price = 1500;
     }
