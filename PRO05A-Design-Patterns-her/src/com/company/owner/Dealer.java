@@ -11,4 +11,10 @@ public class Dealer extends Owner {
         vehicle.setColor(color);
     }
 
+    @Override
+    public void printList(){
+        System.out.println("---------------------------\n" +
+                "List of Dealer:");
+        super.printList();
+    }
 }

@@ -24,9 +24,9 @@ public class Main {
     public static void main(String[] args) {
 
         //Create vehicleBuilders
-        Vehicle.VehicleBuilder audi = new Vehicle.VehicleBuilder(new DriveTrain(new LiquidStorage(), new CombustionEngine()), Vehicle.VehicleBuilder.Type.RACE,"Audi A8", "white");
+        Vehicle.VehicleBuilder audi = new Vehicle.VehicleBuilder(new DriveTrain(new LiquidStorage(), new CombustionEngine()), Vehicle.VehicleBuilder.Type.CIVIL,"Audi A8", "white");
         Vehicle.VehicleBuilder ferrari = new Vehicle.VehicleBuilder(new DriveTrain(new LiquidStorage(), new CombustionEngine()), Vehicle.VehicleBuilder.Type.RACE,"Ferrari Monza", "red");
-        Vehicle.VehicleBuilder tank = new Vehicle.VehicleBuilder(new DriveTrain(new LiquidStorage(), new CombustionEngine()), Vehicle.VehicleBuilder.Type.RACE,"LuftWaffe Z-88", "Camo");
+        Vehicle.VehicleBuilder tank = new Vehicle.VehicleBuilder(new DriveTrain(new LiquidStorage(), new CombustionEngine()), Vehicle.VehicleBuilder.Type.ARMY,"LuftWaffe Z-88", "Camo");
 
         //Add armor to the tank
         Armoring armor = new Armor();
@@ -53,7 +53,7 @@ public class Main {
         sportCarManufacturer.createVehicle(10);
 
         //Check the price of the audi.
-        System.out.println("Price of Audi A8: " + sportCarManufacturer.getVehicle().price());
+        System.out.println("Price of Audi A8: " + sportCarManufacturer.getVehicle("Audi A8").price());
 
         //show list of cars from the factory:
         sportCarManufacturer.printList();

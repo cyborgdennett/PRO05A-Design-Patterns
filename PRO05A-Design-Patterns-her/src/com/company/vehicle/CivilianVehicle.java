@@ -36,4 +36,14 @@ public class CivilianVehicle extends Vehicle {
     public int price(){//Civilian cars are cheap
         return (int)(super.price() * 1.2);
     }
+
+    @Override
+    public String toString(){
+        return "Civilian" + super.toString();
+    }
+    public String toSmallString(){
+        return "CivilianVehicle:" +
+                "model: " + model +
+                " color: " + color + "\n";
+    }
 }

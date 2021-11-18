@@ -19,6 +19,7 @@ public abstract class Owner {
     public Vehicle getVehicle() {
         return vehicles.firstElement();
     }
+    public Vehicle getVehicle(String model) { return vehicles.stream().filter(f -> f.getModel() == model).findFirst().get();}
 
     public Vehicle removeVehicle(Vehicle vehicle) {
 
@@ -35,7 +36,7 @@ public abstract class Owner {
     public void trade(Vehicle vehicle, Owner to) {
         removeVehicle(vehicle);
         to.addVehicle(vehicle);
-        System.out.println("Vehicle has a new owner!");
+        System.out.println("Vehicle: "+vehicle.getModel()+" has a new owner!");
     }
 
     // Methods
@@ -46,7 +47,7 @@ public abstract class Owner {
 
     public void printList(){
         for(Vehicle v : vehicles){
-            System.out.println(v.toString());
+            System.out.println(v.toString() + "----------------------------");
         }
     }
 

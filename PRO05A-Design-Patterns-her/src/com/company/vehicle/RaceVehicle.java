@@ -40,4 +40,14 @@ public class RaceVehicle extends Vehicle {
     public int price(){ //Sport cars are expensive.
         return (int)(super.price() * 1.6);
     }
+
+    @Override
+    public String toString(){
+        return "Race" + super.toString();
+    }
+    public String toSmallString(){
+        return "RaceVehicle:" +
+                "model: " + model +
+                " color: " + color + "\n";
+    }
 }

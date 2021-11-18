@@ -1,5 +1,6 @@
 package com.company.owner;
 
+import com.company.drivetrain.AbstractDriveTrainFactory;
 import com.company.vehicle.ArmyVehicle;
 import com.company.vehicle.CivilianVehicle;
 import com.company.vehicle.RaceVehicle;
@@ -9,6 +10,7 @@ public class Factory extends Owner {
 
     // Variables
     private Vehicle.VehicleBuilder vehicleBuilder;
+    private AbstractDriveTrainFactory driveTrainFactory;
 
     // Constructor
     public Factory(Vehicle.VehicleBuilder vehicleBuilder) {
@@ -60,6 +62,13 @@ public class Factory extends Owner {
     // Setter
     public void changeBuilder(Vehicle.VehicleBuilder vehicleBuilder) {
         this.vehicleBuilder = vehicleBuilder;
+    }
+
+    @Override
+    public void printList(){
+        System.out.println("---------------------------\n" +
+                "List of Factory:");
+        super.printList();
     }
 
 

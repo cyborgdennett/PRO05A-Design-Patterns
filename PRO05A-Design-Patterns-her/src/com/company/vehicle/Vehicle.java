@@ -80,11 +80,7 @@ public abstract class  Vehicle {
                     armor == null || armor instanceof Armor ? "": armor.toString() + "\n";
         }
     }
-    public String toSmallString(){
-        return "Vehicle: \n" +
-                "model: " + model +
-                " color: " + color + "\n";
-    }
+    public abstract String toSmallString();
     @Override
     public String toString(){
         return "Vehicle: \n" +

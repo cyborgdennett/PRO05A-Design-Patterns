@@ -31,5 +31,18 @@ public class ArmyVehicle extends Vehicle {
     public void brake() {
 
     }
+    @Override
+    public String toString(){
+        return "Army" + super.toString();
+    }
+    public String toSmallString(){
+        return "ArmyVehicle:" +
+                "model: " + model +
+                " color: " + color + "\n";
+    }
+    @Override
+    public int price(){
+        return (int)(super.price() * 5);
+    }
 
 }
